@@ -1,0 +1,212 @@
+%%
+% Please see https://bitbucket.org/rivanvx/beamer/wiki/Home for obtaining beamer.
+%%
+%\documentclass[11pt,aspectratio=169]{beamer}
+%\documentclass[11pt,aspectratio=169,xcolor={dvipsnames}]{beamer}
+
+\documentclass[11pt,aspectratio=169,xcolor={dvipsnames},hyperref={pdftex,pdfpagemode=UseNone,hidelinks,pdfdisplaydoctitle=true},usepdftitle=false]{beamer}
+\usepackage{presentation}
+
+
+\title{Lecture 2: CES - Cobb-Douglas economies}
+\author{Juan Herre\~{n}o\\UCSD}
+
+% Enter presentation title to populate PDF metadata:
+\newcommand{\Cov}{\text{Cov}_\lambda}
+\newcommand{\El}{\mathbb{E}_\lambda}
+\newcommand{\mm}{\text{{\fontfamily{qzc}\selectfont m}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Goals for Today}
+\begin{itemize}
+\item So far you have worked with economies where every agent is a price-taker
+\item Highly unsatisfactory to study inflation.
+\begin{itemize}
+\item Inflation is an aggregated measure of individual price changes
+\item Price changes obviously depend on the prices firms \textbf{choose}
+\item Studying how firms choose prices in models where no one set prices is not promising
+\end{itemize}
+\item Today it is a ``framework'' lecture
+\begin{itemize}
+\item Firms will take input prices as given
+\item Choose input combinations
+\item And set prices subject to demand curves
+\end{itemize}
+\item We will do this in the most tractable framework we have: the Dixit-Stiglitz framework
+\item The DS framework is widely used in macro/trade/IO/urban/labor/etc. You should know it.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Digression}
+\begin{itemize}
+\item Pedagogically, economists teach perfect competition as a benchmark
+\item ... and then imperfect competition as an extension
+\item I personally think that is not the right approach
+\item Imperfect competition is the \textbf{general} case
+\item and perfect competition is a \textbf{limiting} scenario
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Model}
+\begin{itemize}
+\item Household problem
+\begin{align*}
+\max_{\{C_{it}\},N_t } \mathbb{E}_0 \sum_{t=0}^{\infty} u(C_t,N_t)\\
+\text{subject to:   } \int_0^1 P_{it} C_{it} + A_{t+1} \leq W_t N_t +  A_t(1+i)\\
+C_t = \left(\int_0^1 C^{\frac{\theta-1}{\theta}}_{it} di \right)^{\frac{\theta}{\theta-1}}
+\end{align*}
+\item Note that $\theta \geq 1$ will give you the elasticity of substitution across varieties. Do not need a continuum
+\item As $\theta \rightarrow \infty$, function is linear, goods are perfect substitutes. As $\theta \rightarrow 1$, you get Leontief, no substitutability.
+\item $C_t$ is oftentimes called a Dixit-Stiglitz aggregator. 
+\item In this case, each variety is atomistic. Changes in $C_{it}$ alone do not affect aggregates
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Result 1: Two stage budgeting}
+\begin{itemize}
+\item We could write a Lagrangean/Bellman to solve the problem directly
+\item Turns out there is an easier way
+\item If upper nest is separable (in this case $N$ is separable from any $C_{i}$ in $u$), and lower nest is homothetic (which DS aggregator is), then we can split the problem in two stages:
+\begin{itemize}
+\item Take $C$ as given, and solve the allocation of expenditure across varieties
+\item Solve the outer nest using standard consumer theory
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{First Stage: Cost minimization}
+\begin{align*}
+\min_{\{C_{it}\}} \int_0^1 P_{it} C_{it} di \text{   subject to:  } \left(\int_0^1 C^{\frac{\theta-1}{\theta}}_{it} di \right)^{\frac{\theta}{\theta-1}} \geq \bar{C}
+\end{align*}
+\begin{itemize}
+\item Main advantage: Static problem with one constraint. Lagrange multiplier $\lambda$
+\item FOC:
+\begin{align*}
+P_{it} = \lambda_t \left(\frac{C_{it}}{C_t}\right)^{-1/\theta}
+\end{align*}
+\item Take ratio of the FOC for two varieties $i$ and $j$
+\begin{align*}
+\frac{C_{it}}{C_{jt}} = \left(\frac{P_{it}}{P_{jt}}\right)^{-\theta}
+\end{align*}
+\item Making obvious that the elasticity of substitution between any two varieties is $\theta$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Price Indices}
+\begin{itemize}
+\item Summarize prices in the economy with a single index. Infinite choices. Two appealing ones:
+\item The relative demand price index, which is the Lagrange multiplier $\lambda_t$.
+\begin{align*}
+\frac{C_{it}}{C_{t}} = \left(\frac{P_{it}}{\lambda_t}\right)^{-\theta}
+\end{align*}
+\item The ideal price index. Define $P_t$ as satisfying $$P_t C_t = \int_0^1 P_{it} C_{it} di $$
+\item How do these compare?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Result 2: The ideal price index = relative demand price index}
+\begin{itemize}
+\item Under CES these two appealing options are the same index
+\item Evaluate the constraint $ \left(\int_0^1 C^{\frac{\theta-1}{\theta}}_{it} di \right)^{\frac{\theta}{\theta-1}} = C_t$, and plug the demand curve $\frac{C_{it}}{C_{t}} = \left(\frac{P_{it}}{\lambda_t}\right)^{-\theta}$
+$$\lambda_t = \left(\int_0^1 P_{it}^{1-\theta} di \right)^{1/(1-\theta)}$$
+\item Use the definition of the ideal price index $P_t C_t = \int_0^1 P_{it} C_{it} di $ and plug-in the demand curve
+$$P_t = \lambda_t$$
+\item This property is very specific to CES. Not necessarily true in other demand systems.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Second stage: Utility maximization}
+\begin{align*}
+\max_{\{C_{it}\},N_t } \mathbb{E}_0 \sum_{t=0}^{\infty} u(C_t,N_t)\\
+\text{subject to:   } {\color{red}{P_tC_t}} + A_{t+1} \leq W_t N_t +  A_t(1+i)
+\end{align*}
+\begin{itemize}
+\item Same problem you know
+\item Used the definition $P_t C_t = \int_0^1 P_{it} C_{it} di$
+\item In the background we have $$\frac{C_{it}}{C_{t}} = \left(\frac{P_{it}}{P}\right)^{-\theta}$$
+\end{itemize}
+Very tractable demand structure for an arbitrary number of goods.
+\end{frame}
+
+
+\begin{frame}{Monopolistic Competition}
+\begin{itemize}
+\item The assumption is that one, and only one, firm produces each variety $i$
+\item So I can index a firm and a variety with the same index.
+\item The firm is Neoclassical as in 210A
+\begin{align*}
+\max_{L_{it},K_{it},Y_{it},P_{it}} P_{it} Y_{it} - R_t K_{it} - w_t L_{it}
+\end{align*}
+\item But it has one additional constraint
+\begin{align*}
+Y_{it} \leq K_{it}^{\alpha}L_{it}^{1-\alpha}\\
+Y_{it} = C_t \left(P_{it}/P_t\right)^{-\theta}
+\end{align*}
+\item Notice that monopolistic competition in a closed economy implies $Y_{it} = C_{it}$.
+\item Can apply two-stage budgeting as well
+\end{itemize}
+\end{frame}
+
+\begin{frame}{First Stage. Cost minimization}
+\begin{align}
+\min_{K_{it},L_{it}} R_t K_{it} + w_t L_{it} \text{    subject to:  }  K_{it}^{\alpha}L_{it}^{1-\alpha} \geq \bar{Y}  
+\end{align}
+\begin{itemize}
+\item Lagrange multiplier $\psi_t$. FOC:
+\begin{align*}
+R_t K_{it} = \alpha Y_t \psi_t \\ w_t L_{it} = (1-\alpha) Y_t \psi_t
+\end{align*}
+\item Evaluate the constraint  $K_{it}^{\alpha}L_{it}^{1-\alpha} = Y_{it} $ at the optimum
+$$\psi_t = \left(\frac{R_t}{\alpha}\right)^{\alpha} \left(\frac{w_t}{1-\alpha}\right)^{1-\alpha}$$
+\item Total cost function $TC_{it} = R_t K_{it} + w_t L_{it}$ and evaluate at the optimum
+$$TC_{it} = \psi_{it} Y_{it}$$
+\item Making evident that
+$$mc_{it} = \psi_t$$
+\item Could have known that by simply remembering that the Lagrange multiplier is the effect on the cost function of a marginal increase in production. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Second Stage: Profit maximization}
+\begin{itemize}
+\item Profit maximization
+\begin{align*}
+\max_{Y_{it},P_{it}} (P_{it} - mc_{it})Y_{it} \\ \text{subject to:   } Y_{it} = C_t (P_{it}/P_t)^{-\theta}
+\end{align*}
+\item FOC and simplify:
+\begin{align*}
+P_{it} = \frac{\theta}{\theta-1} mc_{it} \equiv \mu \times mc_{it}
+\end{align*}
+\item Price is a constant markup over marginal cost. Profits are:
+\begin{align*}
+(\mu - 1)mc_{it} C_{it} \geq 0
+\end{align*}
+\item In the limit where $\theta \rightarrow \infty$, $\mu \rightarrow 1$ and $\text{Profits}_{it} \rightarrow 0$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Extensions}
+\begin{itemize}
+\item Framework amenable to extensions. Examples:
+\begin{itemize}
+\item Nested CES: Consumers choose among sectors. Sectors are composed of varieties. Two layer-CES.
+\item Trade models: Consumers choose among origin of imports. Origin countries have different industries. Industries are composed by varieties. Three-layer CES.
+\item Easy to extend to production functions with Decreasing Returns to scale.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
