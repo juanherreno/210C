@@ -1,0 +1,306 @@
+%%
+% Please see https://bitbucket.org/rivanvx/beamer/wiki/Home for obtaining beamer.
+%%
+%\documentclass[11pt,aspectratio=169]{beamer}
+%\documentclass[11pt,aspectratio=169,xcolor={dvipsnames}]{beamer}
+
+\documentclass[11pt,aspectratio=169,xcolor={dvipsnames},hyperref={pdftex,pdfpagemode=UseNone,hidelinks,pdfdisplaydoctitle=true},usepdftitle=false]{beamer}
+\usepackage{presentation}
+
+
+\title{Lecture 1: The Classical Dichotomy}
+\author{Juan Herre\~{n}o\\UCSD}
+
+% Enter presentation title to populate PDF metadata:
+\newcommand{\Cov}{\text{Cov}_\lambda}
+\newcommand{\El}{\mathbb{E}_\lambda}
+\newcommand{\mm}{\text{{\fontfamily{qzc}\selectfont m}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Questions for Today}
+\begin{itemize}
+\item What determines the return on nominal assets?
+\item What is the classical dichotomy?
+\item Why can the price level be indeterminate?
+\item What determines inflation?
+\item What is the Taylor Rule?
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{The Chicken Economy}
+You have worked with 	``real economies''. I will refer to them as ``chicken economies''
+\begin{itemize}
+\item The economy starts with an initial stock of $K_0$ chicken 
+\item Firms mix existing chicken $K$ with labor $L$, in order to produce more chicken $Y$
+\item Newly produced chicken can be broiled and eaten $C$, or placed next to alive chicken $I$. $Y = C + I$ must hold
+\item The chicken fatality rate is $\delta$
+\item The quantity of chicken available to produce chicken tomorrow is $K_{t+1} = K_t (1-\delta) + I_t$.
+\item You must pay $r^b$ chickens for each chicken you borrow
+\item You must pay $w$ chickens to your workers per hour of work
+\item You can save in chicken, earning $r^l$ chickens next period
+\end{itemize}
+There is no notion of money in the chicken economy.
+\end{frame}
+
+
+\begin{frame}{Money}
+\begin{itemize}
+\item Some clarifications. I will not include a monetary base, quantity of money anywhere.
+\item Instead we will work with a \textit{cashless} economy
+\item Reasons:
+\begin{itemize}
+\item Theory: Theories where the central bank decides on money predict too volatile inflation.
+\item Estimation: Money demand equations are very unstable. Seems to just be the wrong model.
+\item Real-World relevance: Paper money is less and less important
+\item Policy: Central banks do not decide policy by fixing a money supply. They issue reserves to target nominal interest rates, and are willing to exchange reserves for cash one-to-one to accomodate changes in money demand.
+\item Who uses cash? Mostly, criminals.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Neutrality of Money}
+\begin{itemize}
+\item We will start working with \textit{nominal economies}. Some variables are determined in dollar terms, not in terms of chicken.
+\item Is abstracting from money a fundamental theoretical drawback? Does money matter?
+\begin{itemize}
+\item The question is not: Does \textit{wealth} matter? The answer to that is obviously yes
+\item Is the choice of unit of account, and the quantity of money, all else equal, of any relevance?
+\end{itemize}
+\item David Hume (1752) cautions:\\
+\begin{quote}
+\vspace{0.5cm}
+If we consider any one kingdom by itself, it is evident, that the greater or less plenty
+of money is of no consequence; since the prices of commodities are always proportioned to
+the plenty of money, and a crown in Harry VII's time served the same purpose as a pound
+does at present.
+\end{quote}
+\item Hume presents a more nuanced position later in his treatise
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{The Model}
+\begin{itemize}
+\item Representative agent with preferences
+\begin{align*}
+\mathbb{E}_0 \left[ \sum_{t=0}^{\infty} \beta^t \log C_t \right]
+\end{align*}
+\item Can save in real bonds, and in nominal bonds:
+\begin{align*}
+P_t C_t + A_{t+1} + P_t K_{t+1} \leq P_t Y_t + A_t (1+i_{t-1})  + P_t K_t(1+r_{t-1})
+\end{align*}
+\item $Y_t$ an endowment. exogenous. stochastic. Markov.
+\end{itemize}
+Notice: two interest rates on two assets. Budget constraint is in dollars, not chicken.
+\end{frame}
+
+\begin{frame}{Real Bonds Euler Equation}
+\begin{itemize}
+\item Not going to go over the steps to derive FOCs. Life is too short.
+\item For real bonds $K$:
+\begin{align*}
+\frac{1}{C_t} = \beta \mathbb{E}_t \left(\frac{1}{C_{t+1}}(1+r_t)\right)
+\end{align*}
+\item Nothing new, your old friend the Euler equation. if you decide to save in real bonds, same trade-offs as in 210A, 210B.
+\item Log-linearizing the Euler equation around $C_t = C_{t+1} = C$ and $1+r = \beta^{-1}$:
+\begin{align*}
+\mathbb{E}_t (\hat{c}_{t+1} - \hat{c}_t) = \hat{r}_t
+\end{align*}
+The real interest rate $r$ pins down consumption growth
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Fisher Equation}
+\begin{itemize}
+\item For nominal bonds:
+\begin{align*}
+1 = \beta \mathbb{E}_t \left(\frac{C_t}{C_{t+1}}\frac{P_t}{P_{t+1}}(1+i_t)\right)
+\end{align*}
+\item Euler equation for nominal bonds. Asset pricing equation $1 = \mathbb{E}(\text{SDF}_{t,t+1}R_{t+1})$
+\item Combine with Euler for real bonds, to express as an asset pricing excess-return equation
+\item For nominal bonds:
+\begin{align*}
+0 = \beta \mathbb{E}_t \left(\frac{C_t}{C_{t+1}}\left(1+r_t - \frac{P_t}{P_{t+1}}(1+i_t) \right)\right)
+\end{align*}
+\item Log-linearize around a s.s. with zero inflation and constant rates to make things more evident
+\begin{align*}
+\hat{i}_{t} = \hat{r}_t + \mathbb{E}_t \hat{\pi}_{t+1} \text{       : Fisher equation}
+\end{align*}
+\item where $\hat{\pi}_{t+1} = \hat{p}_{t+1} - \hat{p}_t$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Market Clearing and Equilibrium}
+\begin{itemize}
+\item Goods market clear $$C_t = Y_t$$
+\item There are no assets in net supply $$K_t = 0$$ $$A_t = 0$$
+\end{itemize}
+Equilibrium definition: An equilibrium is a sequence of real variables $\{r_{t+1},C_t,K_{t+1}\}$, and nominal variables $\{i_{t+1},A_{t+1},P_t\}$ starting at $t=0$, with initial conditions $B_0,K_0$, and an exogenous process for $Y_t$, such that
+\begin{itemize}
+\item The household behaves optimally: Euler equation and Fisher equation hold
+\item Markets in goods and the two assets clear
+\end{itemize}
+Big problem: 5 equations, 6 unknowns.
+\end{frame}
+
+
+\begin{frame}{Result 1: Classical Dichotomy}
+\begin{itemize}
+\item The Euler equation for real bonds, the market clearing condition for goods, and for capital are a recursive system that pins down $Y, C,K$. No nominal variables enter the system.
+\begin{align*}
+K_{t+1} = 0\\
+C_t = Y_t \\
+(1+r_t)^{-1} =\beta \mathbb{E}_t \left(\frac{C_t}{C_{t+1}}\right) 
+\end{align*}
+\item Classical Dichotomy: real variables do not depend on any nominal variable.
+\item A theoretical result, most evidence points against it. We will spend time breaking it.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Result 2: Price Level Indeterminacy}
+\begin{itemize}
+\item Nominal holdings pinned down by $B_{t+1} = 0$
+\item One equation left:
+\begin{align*}
+(1+i_t)^{-1} = \beta \mathbb{E}_t \left(\frac{C_t}{C_{t+1}} \frac{P_t}{P_{t+1}}\right)
+\end{align*}
+\item to pin down  $\{i_{t+1},P_t\}$.
+\item David Hume seems to be right. Dollars are just a unit of account, and agents do not suffer from money illusion. Any sequence of $P$ as good as any other. Dollars or cents, who cares?
+\item How to proceed?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Pause}
+Let's breathe for a second. Two results:
+\begin{itemize}
+\item Classical Dichotomy: Real equilibrium independent of nominal variables
+\item Price level indeterminacy: Nothing tells you the price level. Any sequence of $P$ is ok.
+\end{itemize}
+These are two distinct concepts. To show it I will break the second while keeping the first.
+\end{frame}
+
+\begin{frame}{Fiscal Policy}
+\begin{itemize}
+\item Fiscal authority collects taxes and send transfers that add up to $T$. Purchases goods $G$, and receives dividends from the central bank $D$.
+\item Balanced budget $$T_t + D_t = G_t$$
+\item For simplicity assume $G$ is given, $D$ is decided by the central bank, so the government is forced to implement $T$ given by the budget constraint above.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Central Bank}
+\begin{itemize}
+\item Central bank issues a liability. Called reserves. Stock of reserves $V$
+\item The central bank promises a nominal return $i^v_t$
+\item Budget constraint of the central bank
+$$V_{t+1} = V_t(1+i^v_t) + P_t D_t$$
+\item Supply of nominal assets must equal demand of nominal assets
+$$A_t = V_t$$
+\item Note the central bank chooses both $V$ and $i^v$. Central banks choose prices and quantities. Powerful.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Real Equilibrium}
+Real equilibrium same as before. Easy to check. Life is too short. Important: classical dichotomy still holds.
+\end{frame}
+
+\begin{frame}{Nominal Equilibrium}
+\begin{itemize}
+\item Nominal equilibrium is $\{P_t, i_t+1\}$ such that
+$$i_t = i^v_t$$
+$$(1+i_t)^{-1} = \beta \mathbb{E}_t \left(\frac{C_t}{C_{t+1}} \frac{P_t}{P_{t+1}}\right)$$
+\item to pin down $P$ need to solve the following difference equation
+$$r_t = i^v_t - \mathbb{E}_t \Delta p_{t+1}$$
+\item Fisher equation extended for the central bank picking $i$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Result 3: Interest rate pegs do not work}
+\begin{itemize}
+\item Imagine the central bank picks an exogenous path for $i^v$. wlog $i^v = 0$.
+\item Equilibrium then implies $$p_t = \mathbb{E}_t p_{t+1}  + r_t$$
+\item Cannot solve by iterating forward. No initial or terminal condition for $p$
+\item Indeterminacy of interest rate pegs: If the interest rate is exogenous, and I expect higher prices in the future, prices today jump. Any sequence of $p$ is ok.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Result 4: Wicksellian rules}
+\begin{itemize}
+\item Instead assume $i^v_t = \phi (\hat{p}_t - \hat{p}_t^*)$, for some desired price $\hat{p}^*$
+\item Fisher equation now $$(\phi + 1)\hat{p}_t = \mathbb{E}_t \hat{p}_{t+1} + r_t + \phi \hat{p}^*_t$$
+\item Iterate forward assuming $\phi > 0$. $$\hat{p}_t = \mathbb{E}_t \sum_{s= 0}^{\infty} (1+\phi)^{-(s+1)}(r_{t+s} + \phi \hat{p}^*_{t+s})$$	 
+\end{itemize}
+Price level pinned down. If there are shocks to the expected path of real rates or desired targets, then the price level moves.
+\end{frame}
+
+\begin{frame}{Result 5: Taylor Rules and the Taylor Principle}
+\begin{itemize}
+\item Instead assume $i^v_t = \phi (\hat{\pi}_t - \hat{\pi}_t^*)$, for some desired inflation rate $\hat{\pi}^*$
+\item Fisher equation now $$\phi \hat{\pi}_t = \mathbb{E}_t \hat{\pi}_{t+1} + r_{t+1} + \phi \hat{\pi}^*_t$$
+\item Iterate forward assuming $\phi > 1$. $$\hat{\pi}_t = \mathbb{E}_t \sum_{s= 0}^{\infty} (\phi)^{-(s+1)}(r_{t+s+1} + \phi \hat{\pi}^*_{t+s})$$	 
+\end{itemize}
+Determining the inflation rate
+\end{frame}
+
+
+\begin{frame}{Taylor Rules and Taylor Principle}
+$$ i^v_t = \phi (\hat{\pi}_t - \hat{\pi}_t^*), \text{   with:  } \phi >1$$
+\begin{itemize}
+\item That a Taylor rule satisfies $\phi>1$ is called the Taylor Principle
+\item In words: If inflation increases, the central bank increases interest rates \textit{more than proportionally}
+\item Was for years at the center of monetary policy debate:
+\begin{itemize}
+\item Is the Taylor Principle satisfied?
+\item Is the Taylor Principle close to optimal monetary policy?
+\item Are observed inflationary spirals violations of the Taylor Principle?
+\end{itemize}
+\item Note that both Wicksellian and Taylor rules required log-linearizations. They are a locally bounded equilibrium maintained under the threat that the central bank would blow up the economy. But maybe the economy can blow up? Why rule that out?
+$$\uparrow \pi_t \rightarrow \uparrow i_t \rightarrow \uparrow \pi_{t+1} \rightarrow \uparrow i_{t+1} ...$$
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Taylor Rule in the US}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{figures/taylor_1}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Taylor Rule in the US}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{figures/taylor_2}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Questions for Today}
+\begin{itemize}
+\item What determines the return on nominal assets? {\color{red}{The Fisher Equation. An arbitrage condition}}
+\item What is the classical dichotomy? {\color{red}{Monetary policy is neutral. Theoretical starting point}}
+\item Why can the price level be indeterminate? {\color{red}{Because units are a veil. No money illusion}}
+\item What determines inflation? {\color{red}{So far arbitrage and the ability of the government to issue liabilities and set its price}}
+\item What is the Taylor Rule: {\color{red}{Hike interest rates aggresively when inflation occurs. Pins down inflation locally. Potential problems with inflationary explosions and the ZLB.}}
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
