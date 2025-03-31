@@ -1,0 +1,675 @@
+%%
+% Please see https://bitbucket.org/rivanvx/beamer/wiki/Home for obtaining beamer.
+%%
+%\documentclass[11pt,aspectratio=169]{beamer}
+%\documentclass[11pt,aspectratio=169,xcolor={dvipsnames}]{beamer}
+
+\documentclass[11pt,aspectratio=169,xcolor={dvipsnames},hyperref={pdftex,pdfpagemode=UseNone,hidelinks,pdfdisplaydoctitle=true},usepdftitle=false]{beamer}
+\usepackage{presentation}
+
+
+\title{Lecture 4: The New Keynesian Model}
+\author{Juan Herre\~{n}o\\UCSD}
+
+% Enter presentation title to populate PDF metadata:
+\newcommand{\Cov}{\text{Cov}_\lambda}
+\newcommand{\El}{\mathbb{E}_\lambda}
+\newcommand{\mm}{\text{{\fontfamily{qzc}\selectfont m}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{History of Economic Thought}
+\begin{itemize}
+\item First Keynesian models written down by Hicks, Modigliani, Samuelson, Solow, etc. Two inputs. Sluggish prices. Large MPCs.
+\pause
+\item ``Old Keynesian'' models heavily criticized in the 1970s by ``fresh-water'' economists
+\begin{itemize}
+\item Lack of role for expectations
+\item Assumptions on the policy-invariance of aggregate elasticities in the data (Lucas' Critique).
+\end{itemize}
+\pause
+\item Most of these fresh-water models:
+\begin{itemize}
+\item Representative Agent models
+\item Introduction of Rational Expectations
+\item RBC theory ignoring monetary policy at first. Classical dichotomy holds
+\end{itemize}
+\pause
+\item Salt-water reply produced the ``New Keynesian'' model
+\begin{itemize}
+\item Spend the 1980s on micro-foundations of price rigidities
+\item Simple representative agent rational expectation models but with frictions
+\item Focus on: Inefficient fluctuations, so role for policy. Deviations from the classical dichotomy, so role for monetary policy
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sticky prices}
+\begin{itemize}
+\item Intellectual figures: Ball, Blanchard, Calvo, Gali, Kiyotaki, Mankiw, D. Romer, Woodford
+\pause
+\item Maintained assumption that MPCs are small. Relaxed in new generation ``HANK'' models
+\pause
+\item Key innovation. Frictions to reset prices.
+\pause
+\item Not obvious how to do it. Alternatives.
+\pause
+\begin{itemize}
+\item An aggregate price level is fixed. Not desirable. Assuming the result.
+\pause
+\item Are product prices or input prices subject to frictions? Sticky prices or sticky wages?
+\pause
+\item Firms face ``costs'' to reset their prices. Quadratic cost (Rotemberg), fixed cost (menu cost), random arrival (Calvo)
+\pause
+\item Firms need to pay to acquire information. Random arrival (Mankiw Reis), Information technological frictions (Angeletos La'O), convex cost of paying attention (Sims)
+\end{itemize}
+\pause
+\item We will discuss many of them. But we will start with the Calvo model. Why? It is simple and honestly beautiful. Theoretical starting point.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Calvo model}
+\begin{itemize}
+\item First proposed by Guillermo Calvo. Perhaps the most important Latin American economist in history. Worth reading about him. \pause
+\item First are monopolistic competitors facing CES demand. You are experts.
+\pause
+\item Simplest production structure. Production linear in labor.
+\pause
+\item Price rigidity
+\begin{itemize}
+\item With probability $1-\lambda$ firms can adjust their prices. With probability $\lambda$ must keep them fixed
+\pause
+\item i.i.d across firms, and constant through time
+\pause
+\item $(1-\lambda)$ firms adjust today. $\lambda(1-\lambda)$ adjusted last period for the last time. $\lambda(1-\lambda)^2$ two periods ago, and so on.
+\pause
+\item Not meant to be realistic. We will contrast with the data soon. Will offer theoretical insights.
+\pause
+\item You often hear about the ``Calvo fairy'', the exogenous occurrence of a chance to reset prices
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Intuition}
+Imagine this problem
+
+\begin{align}
+& \max_{P_{it},Y_{it}, L_{it}} P_{it} Y_{it} - W_t L_{it}\\
+& \text{subject to:   } Y_{it} = C_t (P_{it}/P_t)^{-\theta} \text{  ,  } Y_{it} = A_t L_{it}
+\end{align}
+\begin{itemize}
+\pause
+\item Super simple. We solved it already in lecture 2.
+\pause
+\item Optimal pricing rule. Markup over marginal cost.
+\begin{align*}
+P_{it} = \frac{\theta}{\theta-1} \frac{W_t}{A_t}
+\end{align*}
+\pause
+\item In this model firms want to change their prices because their marginal cost changes.
+\pause
+\item This pricing block static. Why worry about tomorrow when I can change my price every period, my inputs are spot, and demand curves static.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Dynamic pricing}
+\begin{itemize}
+\item Now imagine instead that you have to pick a price $P_{it}^*$, that will apply today, and will still be in place tomorrow with probability $\lambda$, the day after tomorrow with probability $\lambda^2$, and so on.
+\pause
+\item Gives rise to a dynamic pricing problem. My price today will impact my profits in the future
+\begin{align*}
+&\max_{P^*_{it},Y_{i,t+k|t}, L_{i,t+k|t}} \mathbb{E}_t \sum_{k=0}^{\infty} \Lambda_{t,t+k} \lambda^k \left(P^*_{it} Y_{i,t+k|t} - W_{t+k} L_{i,t+k|k}\right) \frac{1}{P_{t+k}}\\
+& \text{subject to:  } Y_{i,t+k|t} = C_{t+k} (P_{i,t+k|t}/P_{t+k})^{-\theta} \text{  ,  } Y_{i,t+k|t} = A_{t+k} L_{i,t+k|t}
+\end{align*}
+\pause
+\item Firms take decisions under uncertainty (210A), discounting future profits using the SDF of the marginal investor $\Lambda$ (210B), by choosing a sticky price (lecture 4), subject to a sequence of CES demand curves (lecture 2).
+\pause
+\item Notice: Must satisfy demand. No such thing as ``close shop'' when the price is not good.
+\pause
+\item Notice: Is it ok to maximize this objective as opposed to the Value of the firm (that includes all the contingencies where it can adjust prices?)
+\pause
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Optimality}
+\begin{itemize}
+\item Plug the constraints in the objective and take FOC with respect to $P_{it}^*$. Will not do it here. Life is too short.
+\begin{align*}
+P^*_{it} = \mathcal{M} \frac{\mathbb{E}_t \sum_{k=0}^{\infty} \lambda^k \Lambda_{t,t+k} \frac{W_{t+k}}{A_{t+k}} C_{t+k} P_{t+k}^{\theta-1}}{\mathbb{E}_t \sum_{k=0}^{\infty} \lambda^k \Lambda_{t,t+k} C_{t+k} P_{t+k}^{\theta-1}}
+\end{align*}
+\pause
+\item where $\mathcal{M} = \frac{\theta}{\theta-1}$ is the gross markup under flexible prices, and $W/A$ is the nominal marginal cost
+\item In words: The firm chooses $P^*$ to minimize the weighted distance of its profits to those of the flexible price eq., using as weights the probability that the price is active in period $k$, and the expected valuation of dividends by its owner in that period.
+\pause
+\item Notice: $P^*_{it}$ is the same $\forall i$. Result of assumptions on the nature of shocks and competition.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Aggregation}
+\begin{itemize}
+\item $(1-\lambda)$ share of firms pick the same $P^*_{it} = P^*_t$.
+\pause
+\item $\lambda$ share of firms keep their price constant
+\pause
+\item Since resetters are picked at random, the average price of firms with fixed prices is $P_{t-1}$.
+\pause
+\item Important economic assumption. No selection in price changes!
+\pause
+\item Easy to show
+$$P_t^{1-\theta} = (1-\lambda) (P^*_t)^{1-\theta} + \lambda P^{1-\theta}_{t-1}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Household}
+\begin{itemize}
+\item Very easy. We pretty much did it in lecture 1 and 2
+\item Representative agent with preferences
+\begin{align*}
+\mathbb{E}_0 \left[ \sum_{t=0}^{\infty} \beta^t \frac{C^{1-\gamma}_t}{1-\gamma} - \chi \frac{N^{1+\varphi}_t}{1+\varphi} \right]
+\end{align*}
+\pause
+\item Can save in nominal bonds:
+\begin{align*}
+P_t C_t + B_{t+1}  \leq W_t N_t + B_t (1+i_{t-1}) 
+\end{align*}
+\pause
+\item And a CES preference bundle and price index in the background
+\begin{align*}
+C_t = \left(\int_0^1 C^{\frac{\theta}{\theta-1}}_{it} di \right)^{\frac{\theta}{\theta-1}} \text{     ,    } P_t = \left(\int_0^1 P^{1-\theta}_{it} di \right)^{\frac{1}{1-\theta}} 
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Optimality Conditions}
+\begin{itemize}
+\item Labor supply
+\begin{align*}
+\frac{W_t}{P_t} = \chi N^{\varphi}_t C_t^{\gamma}
+\end{align*}
+\pause
+\item Euler equation for nominal bonds
+\begin{align*}
+1 = \mathbb{E}_t \left( \left(\frac{C_{t+1}}{C_t}\right)^{-\gamma} \frac{P_t}{P_{t+1}}(1+i_t)\right)
+\pause
+\end{align*}
+\item And CES demand curves in the background
+\begin{align*}
+C_{it} = C_t \left(\frac{P_{it}}{P_t}\right)^{-\theta}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Monetary Policy}
+\begin{itemize}
+\item Very similar to the central bank we covered in lecture 1.
+\pause
+\item Sets interest rates. Follows a Taylor Rule.
+\pause
+\item  Random disturbances to nominal rates, like the monetary policy shocks in Lecture 3.
+\begin{align*}
+(1+i_t) = \beta^{-1} \left(\frac{P_t}{P_{t-1}}\right)^{\phi_{\pi}} e^{v_t}
+\end{align*}
+\pause
+\item More realistic versions include responses to output
+\pause
+\item Not a statement on policy optimality. We will do that soon. Taylor rule more of an approximation to actual behavior
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Market clearing}
+\begin{itemize}
+\item Labor markets clear. $N_t = \int_0^1 L_{it} di$
+\pause
+\item Good markets clear $C_{it} = Y_{it}$
+\pause
+\item Bond markets clear $B_t = 0$
+\pause
+\item We will \textbf{define} aggregate output as $Y_t = \left(\int_0^1 Y^{\frac{\theta}{\theta-1}}_{it} di \right)^{\frac{\theta}{\theta-1}}$
+\item Why? It achieves $Y_t = C_t$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Equilibrium Definition}
+An equilibrium is an allocation $\left\lbrace C_{i,t+s} C_{t+s}, N_{t+s},Y_{t+s}\right\rbrace_{s=0}^{\infty}$, and a set of prices $\left\lbrace i_{t+s}, W_{t+s},P_{i,t+s} P_{t+s} \right\rbrace_{s=0}^{\infty}$, along with exogenous processes $\left\lbrace v_{t+s},  A_{t+s} \right\rbrace_{s=0}^{\infty}$ such that
+\begin{itemize}
+\item Households optimize: Labor leisure, euler equation, and demand curves are satisfied taking prices as given.
+\item Firms optimize: Firm-prices are set optimally, price aggregation holds
+\item Central bank sets policy according to the Taylor rule
+\item Labor, bonds, and goods markets clear.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Log-linearize}
+\begin{itemize}
+\item The model so far is difficult to analyze, too many non-linear equations
+\pause
+\item We will log-linearize the model. Paula taught you how. Need to choose a linearization point. We will choose the equilibrium with flexible prices and zero inflation
+\pause
+\item I will skip most of the log-linearization steps, as they are very standard. Check Gali's book if you are unsure how to do it.
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Log Linearization: Inflation
+}
+\begin{itemize}
+	\item Price Index:
+	\begin{align*}
+		P_t&=\left[\lambda P_{t-1}^{1-\theta} + (1-\lambda) P_{t}^{*1-\theta}\right]^{\frac{1}{1-\theta}} 
+	\end{align*}
+	\pause
+	\item The price index can be log-linearized to get
+	\begin{align*}
+		\hat{p}_t=\lambda \hat{p}_{t-1}+(1-\lambda)\hat{p}_t^*
+	\end{align*}
+	\pause
+	\begin{itemize}
+		\item Equivalently written in terms of inflation:
+		\begin{align*}
+		\hat{\pi}_t=(1-\lambda)(\hat{p}_t^*-\hat{p}_{t-1})
+	\end{align*}
+	\item Inflation is positive when newly set prices are higher than old prices.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Log Linearization: Reset Prices
+}
+\begin{itemize}
+	\item The reset price can be log-linearized as:
+	\begin{align*}
+		\hat{p}_t^*=(1-\beta\lambda)E_t\left\{\sum_{s=0}^{\infty}(\beta\lambda)^s\left(\hat{p}_{t+s}+\hat{mc}_{t+s}\right)\right\} 
+	\end{align*}
+	\item Intuition: price deviations are equal to the expected future deviations of desired prices (real marginal costs + price index)
+	\pause
+	\item We can write this recursively as:
+	\begin{align*}
+		\hat{p}_t^*=(1-\beta\lambda)(\hat{p}_{t}+\hat{mc}_{t})+\beta\lambda E_t\{\hat{p}_{t+1}^*\}
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Log Linearization: Phillips Curve
+}
+\begin{itemize}
+	\item Subtract $\hat{p}_{t-1}$:
+	\begin{align*}
+		(\hat{p}_t^*-\hat{p}_{t-1})=(1-\beta\lambda)\hat{mc}_{t}+\hat{\pi}_t+\beta\lambda E_t\{\hat{p}_{t+1}^*-\hat{p}_{t}\}
+	\end{align*}
+	\pause
+	\item Plug into $\hat{\pi}_t=(1-\lambda)(\hat{p}_t^*-\hat{p}_{t-1})$ to get an expectations-augmented Phillips curve:
+	\begin{align*}
+		\hat{\pi}_t=\alpha\hat{mc}_{t}+\beta E_t\{\hat{\pi}_{t+1}\},\;\text{ where }\;\alpha=\frac{(1-\lambda)(1-\beta\lambda)}{\lambda}
+	\end{align*}
+	\pause
+	\item Inflation is equal to expected future inflation plus the deviation of marginal cost from its steady state level.
+	\begin{itemize}
+		\item Expected inflation: Forward looking price setters choose higher prices now if inflation is expected to be high, as nominal marginal costs will rise.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Log Linearization: Phillips Curve
+}
+\begin{itemize}
+	\item Inflation is equal to expected future inflation plus the deviation of marginal cost from its steady state level.
+	\begin{itemize}
+		\item Two ways to think about marginal cost deviation:
+	\end{itemize}
+	\begin{itemize}
+		\item Set higher prices to cover higher marginal cost.
+		\item When marginal costs are above desired level, markups are below desired level. Inflation as firms hike markup back to desired level. (In fact, $\hat{mc}_t = -\hat{\mu}_t$).
+	\end{itemize}
+	\item Iterating forward,
+	\begin{align*}
+		\hat{\pi}_t=\alpha E_t\left\{\sum_{s=0}^{\infty}\beta^s\hat{mc}_{t+s}\right\}
+	\end{align*}
+	\begin{itemize}
+		\item Inflation is the PDV of future marginal cost / markup deviations from steady state.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Log Linearization: Real Marginal Costs
+}
+\begin{align*}
+	\hat{mc}_t=\hat{w}_t-\hat{p}_t-\hat{a}_t
+\end{align*}
+\begin{itemize}
+	\item Combine labor-leisure, production function, and $\hat{c}_t=\hat{y}_t$:
+	\begin{align*}
+		\hat{w}_t-\hat{p}_t=(\gamma+\varphi)\hat{y}_t-\varphi\hat{a}_t
+\end{align*}
+	\item Consequently,
+	\begin{align*}
+	\hat{mc}_t=(\gamma+\varphi)\hat{y}_t-(1+\varphi)\hat{a}_t
+\end{align*}
+\item Compare to flexible price case:
+\begin{align*}
+	1 = \frac{P_t(i)}{P_t} = \mu\frac{W_t}{P_t}\frac{1}{A_t} 
+\end{align*}
+so
+\begin{align*}
+	\hat{mc}_t^{flex} = 0,\qquad (\gamma+\varphi)\hat{y}_t^{flex}&=(1+\varphi)\hat{a}_t \\
+\end{align*}
+where $\hat{y}_t^{flex}$ is called the \emph{natural level of output}.
+\end{itemize}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{Nonlinear Equations: Phillips Curve
+%}
+%\begin{itemize}
+%	\item Putting everything together, the NK model features an \emph{expectations-augmented Phillips curve}.
+%	\begin{itemize}
+%		\item Because price setting is forward looking, Phillips curve is going to be \emph{expectation-augmented}.
+%		\item Output-inflation relationship relates inflation to deviations from flex price output (called the \emph{natural level of output}).
+%		\begin{itemize}
+%			\item At natural level of output with no expected inflation, resetters choose price equal to flexible price, resulting in no inflation.
+%			\item If output deviates, that is if the output gap $\tilde{Y}_t = (Y_t-Y_t^{flex})/Y_t^{flex}$ is nonzero, the extra output will bid up nominal wages and move marginal costs, causing inflation in response to deviations of output from its flexible level.
+%		\end{itemize}
+%	\end{itemize}
+%	\item NK model a response to Lucas Critique.
+%	\begin{itemize}
+%		\item Unlike ``old'' Keynesian models, only unexpected inflation moves output.
+%		\item Central bank cannot regularly exploit output-inflation trade-off.
+%	\end{itemize}
+%\end{itemize}
+%\end{frame}
+
+
+%\begin{frame}
+%\frametitle{Log Linearization: Flexible Price Equilibrium
+%}
+%\begin{align*}
+%	\frac{W_t^{flex}}{P_t^{flex}}&=\frac{\chi (N_t^{flex})^\varphi}{(C_t^{flex})^{-\gamma}} \\
+%%	1&=\beta E_t\left\{Q_t \frac{P_t}{P_{t+1}} \frac{C_{t+1}^{-\gamma}}{C_{t}^{-\gamma}}\right\}=E_{t}\{\Lambda_{t,t+1}R_{t+1}\} \\
+%%	P_t&=\left[\theta P_{t-1}^{1-\epsilon} + (1-\theta) P_{t}^{*1-\epsilon}\right]^{\frac{1}{1-\epsilon}} \\
+%	\frac{W_t^{flex}}{P_t^{flex}} &=  \frac{A_t}{1+\mu} \\
+%	Y_t^{flex}&=C_t^{flex} \\
+%Y_t^{flex}&=A_t^{flex}N_t^{flex}
+%%\\
+%%	Q_t &= \beta^{-1}\left(\frac{P_t}{P_{t-1}}\right)^{\phi_{\pi}}\left(\frac{Y_t}{\bar{Y}}\right)^{\phi_{y}}e^{v_t}
+%\end{align*}
+%\begin{itemize}
+%	\item Combine to get:
+%	\begin{align*}
+%		A_t^{1+\varphi}&=\chi(1+\mu)(Y_t^{flex})^{\gamma+\varphi} \\
+%	(\gamma+\varphi)\hat{y}_t^{flex}&=(1+\varphi)\hat{a}_t
+%\end{align*}
+%\end{itemize}
+%\end{frame}
+%
+\begin{frame}
+\frametitle{Real Marginal Costs in Terms of Output Gap
+}
+\begin{itemize}
+	\item Combine:
+	\begin{align*}
+		\hat{mc}_t&=(\gamma+\varphi)\hat{y}_t-(1+\varphi)\hat{a}_t \\
+		(\gamma+\varphi)\hat{y}_t^{flex}&=(1+\varphi)\hat{a}_t \\
+\end{align*}
+	to write real marginal costs in terms of output gap $\tilde{y}_t$:
+	\begin{align*}
+		\hat{mc}_t&=(\gamma+\varphi)(\hat{y}_t-\hat{y}_t^{flex})
+	\end{align*}
+	\item Real marginal costs go up (and markups go down) when the output gap is high.
+	\begin{itemize}
+		\item To produce more than under flex prices, markup must be lower.
+		\item Marginal costs high because need to hire more workers,
+bidding up real wage.
+		\item Stronger when IES and labor supply elasticity are low.
+		\item In Gali textbook also stronger with DRS.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+%
+%\begin{frame}
+%\frametitle{The New Keynesian Phillips Curve
+%}
+%\begin{itemize}
+%	\item Plug back into the Phillips curve $\hat{\pi}_t=\lambda\hat{mc}_{t}+\beta E_t\{\hat{\pi}_{t+1}\}$
+%	\begin{align*}
+%		\hat{\pi}_t=\kappa\tilde{y}_t+\beta E_t\{\hat{\pi}_{t+1}\},\;\text{ where }\;\kappa=\lambda(\gamma+\varphi)
+%\end{align*}
+%	\begin{itemize}
+%		\item This is the \emph{New Keynesian Philips Curve}: an expectations augmented Phillips curve written in terms of the output gap.
+%	\end{itemize}
+%	\item Solving forward,
+%	\begin{align*}
+%		\hat{\pi}_t=\kappa E_t\left\{\sum_{s=0}^{\infty}\beta^s\tilde{y}_{t+s}\right\}
+%	\end{align*}
+%	\begin{itemize}
+%		\item Inflation is an increasing function of future output gaps.
+%		\item Output gap high $\Rightarrow$ marginal cost high and markups low $\Rightarrow$ raise markups.
+%	\end{itemize}
+%\end{itemize}
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{The New Keynesian Phillips Curve
+}
+\begin{itemize}
+	\item Plug back into the Phillips curve $\hat{\pi}_t=\alpha\hat{mc}_{t}+\beta E_t\{\hat{\pi}_{t+1}\}$
+	\begin{align*}
+		\hat{\pi}_t=\kappa(\hat{y}_t-\hat{y}_t^{flex})+\beta E_t\{\hat{\pi}_{t+1}\},\;\text{ where }\;\kappa=\alpha(\gamma+\varphi)
+\end{align*}
+	\begin{itemize}
+		\item This is the \emph{New Keynesian Philips Curve}: an expectations augmented Phillips curve written in terms of the output gap.
+		\item It is the aggregate supply curve of the model
+	\end{itemize}
+	\item Solving forward,
+	\begin{align*}
+		\hat{\pi}_t=\kappa E_t\left\{\sum_{s=0}^{\infty}\beta^s(\hat{y}_{t+s}-\hat{y}_{t+s}^{flex})\right\}
+	\end{align*}
+	\begin{itemize}
+		\item Inflation is an increasing function of future output gaps.
+		\item Output gap high $\Rightarrow$ marginal cost high and markups low $\Rightarrow$ raise markups.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{AD Block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Log Linearization: The Aggregate Demand Block
+}
+\begin{itemize}
+	\item Log-linearize Euler around zero-inflation:
+	\begin{align*}
+		\hat{c}_t=-\frac{1}{\gamma}\left(\hat{i}_t-E_t\{\hat{\pi}_{t+1}\}\right)+E_t\{\hat{c}_{t+1}\}
+	\end{align*}
+	\begin{itemize}
+		\item Steady state nominal interest rate is $i_t = \rho = -\log \beta$.
+	\end{itemize}
+	\item Combine with market clearing and use $\sigma=1/\gamma$:
+	\begin{align*}
+		\hat{y}_t=-\sigma\left(\hat{i}_t-E_t\{\hat{\pi}_{t+1}\}\right)+E_t\{\hat{y}_{t+1}\}
+	\end{align*}
+	\item This is the \emph{dynamic IS curve}. It relates output to future expectations of output and the real interest rate.
+\end{itemize}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{The Natural Rate of Interest
+%}
+%\begin{itemize}
+%	\item Define the natural rate of interest $\hat{r}_{t+1}^n$ as the real interest rate that would prevail when output is equal to its flexible level:
+%	\begin{align*}
+%		\hat{y}_t^{flex}=-\sigma \hat{r}_{t+1}^n+E_t\{\hat{y}_{t+1}^{flex}\}
+%	\end{align*}
+%	\item Recall $\hat{y}_t^{flex}=\left(\frac{1+\varphi}{\gamma+\varphi}\right)\hat{a}_t$ so:
+%	\begin{align*}
+%		\hat{r}_{t+1}^n&=\gamma \frac{1+\varphi}{\gamma+\varphi}E_t\{\hat{a}_{t+1}-\hat{a}_t\} \\
+%		&=\gamma \frac{1+\varphi}{\gamma+\varphi}E_t\{\Delta \hat{a}_{t+1}\} 
+%	\end{align*}
+%	\begin{itemize}
+%		\item If $a_t$ follows an AR(1) and grows today, it will be expected to decline between today and tomorrow due to mean reversion.
+%		\item So positive tech shock causes real interest rate to fall by standard RBC logic.
+%	\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%
+\begin{frame}
+\frametitle{Dynamic IS
+}
+%\begin{align*}
+%		\hat{y}_t=-\sigma\left(\hat{i}_t-E_t\{\hat{\pi}_{t+1}\}\right)+E_t\{\hat{y}_{t+1}\}
+%	\end{align*}
+\begin{itemize}
+	\item Iterating forward, the current output gap depends negatively on the gap between the real interest rate and the natural rate of interest (assuming return to steady state):
+	\begin{align*}
+		\hat{y}_t=-\sigma E_t\left\{\sum_{s=0}^{\infty}\left(\hat{r}_{t+s+1}\right)\right\}
+	\end{align*}
+	\item If you want to figure out what happens to output in the NK model, you need to figure out what happens to the path of the real interest rate.
+	\begin{itemize}
+		\item Output gap determined purely by intertemporal substitution. Not old Keynesian marginal propensities to consume / invest.
+		\item Intuition also works well for larger NK models.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Three Equation Model}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{The Three Equation Model}
+\begin{itemize}
+	\item In sum, the log-linearized NK model boils down to three equations:
+	\begin{align*}
+		\hat{y}_t &=-\sigma[\hat{i}_t-E_t\{\hat{\pi}_{t+1}\}]+E_t\{\hat{y}_{t+1}\} \\
+		\hat{\pi}_t&=\kappa (\hat{y}_t-\hat{y}_t^{flex}) +\beta E_t \{\hat{\pi}_{t+1}\} \\
+		\hat{i}_t&=\phi_\pi\hat{\pi}_t+v_t \\
+	\end{align*}
+	with three unknowns: $\hat{i}_t$, $\hat{y}_t$, and $\hat{\pi}_t$  and an exogenous driving
+process for the output gap $\hat{y}_t^{flex}$ ($=\frac{1+\varphi}{\gamma+\varphi}\hat{a}_t$) and the monetary policy shock $\hat{v}_t$.
+	\item Key new ingredient is NK Phillips curve:
+	\begin{itemize}
+		\item $\beta E_t \{\hat{\pi}_{t+1}\}$: Price setters forward looking.
+		\item $\kappa\hat{y}_t$: Output  $\uparrow\;\Rightarrow$ MC $\uparrow\;\Rightarrow$ markups $\downarrow\;\Rightarrow$ raise prices
+	\end{itemize}
+	\item Determinacy: similar condition to lecture 1. See Gali.
+	\item Note: Gali writes everything in terms of ``gaps'', $\tilde{y}_t = \hat{y}_t-\hat{y}_t^{flex}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Special Case: $\kappa\rightarrow\infty$}
+\begin{itemize}
+%	\item To understand how the NK model works let us focus first on special cases. 
+	\item Equivalent to flexible prices: $\lambda=0$.
+	\item The NK Phillips Curve becomes:
+	\begin{align*}
+		\hat{y}_t = \hat{y}_t^{flex}&=\frac{1+\varphi}{\gamma+\varphi}\hat{a}_t 
+	\end{align*}
+	\item Output fluctuations arise only from productivity fluctuations.
+	\item Monetary variables $v_t$ have no real effect:
+	\begin{itemize}
+		\item Drop in $v_t$ lowers nominal rate and real interest rate.
+		\item All else equal increases output and marginal cost.
+		\item Prices today rise with marginal cost so that $\pi_{t+1}$ is low and the real interest rate is constant.
+		\item[$\Rightarrow$] With constant real interest rate output is unchanged.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Special Case: $\kappa=0$}
+\begin{itemize}
+	\item Equivalent to perfectly rigid prices: $\theta=1$.  The NK Phillips Curve becomes $\hat{\pi}_t=0$.
+	\item Now output is demand determined:
+	\begin{align*}
+		\hat{y}_t &=-\sigma\hat{i}_t +E_t\{\hat{y}_{t+1}\} \\
+		\hat{i}_t&=v_t 
+	\end{align*}
+	\item If $v_t = \rho_v v_{t-1}+\epsilon_t$, then
+	\begin{align*}
+		\hat{y}_t = -\frac{\sigma}{1-\rho_v}v_t
+	\end{align*}
+	\item Monetary variables $\hat{v}_t$ have a real effect:
+	\begin{itemize}
+		\item Drop in $v_t$ lowers nominal rate and real interest rate.
+		\item Inflation is constant so output expands with the lower real interest rate.
+	\end{itemize}
+	\item With rigid prices, output is independent of productivity fluctuations.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Intermediate $\kappa$}
+\begin{itemize}
+	\item Assume
+	\begin{align*}
+		v_t = \rho_v v_{t-1}+\epsilon_t \text{ and }\hat{a}_{t}=0
+	\end{align*}
+	\item Guess reduced form policy functions:
+	\begin{align*}
+		\hat{y}_t=\psi_{yv}v_t\text{ and }\hat{\pi}_t=\psi_{\pi v}v_t
+	\end{align*}
+	\item This gives:
+	\begin{align*}
+		\psi_{\pi v}&=\kappa\psi_{yv}+\beta\rho_v\psi_{\pi v}\\
+		\psi_{y v}&=-\sigma(\phi_\pi \psi_{\pi v} + 1 -\rho_v \psi_{\pi v})+\rho_v \psi_{y v}
+	\end{align*}
+	\item Solving by method of undetermined coeffs:
+	\begin{align*}
+		\psi_{y v}=-(1-\beta\rho_v)\Psi_v\text{ and }\psi_{\pi v}=-\kappa \Psi_v
+	\end{align*}
+	\begin{align*}
+		\text{where } \Psi_v=\frac{1}{(1-\beta\rho_v)\gamma(1-\rho_v)+\kappa(\phi_\pi-\rho_v)}>0
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Epistemiology}
+\begin{itemize}
+	\item NK model a response to the Lucas critique: ``fully'' optimizing agents but monetary policy has real effect.
+	\item Extensive debate on how well NK model fits the data.
+	\begin{itemize}
+		\item Centers on much more complex ``medium-scale'' models.
+		\item These are the simple NK model at its core with many additional ``bells and whistles'' (capital, habits, indexation, rigid wages, government, etc).  See references in the syllabus.
+		\item Everyone agrees the simple three equation model does not match the data well.
+%		\item See references in the syllabus.
+	\end{itemize}
+	\item Should view simple model as an organizing framework.
+	\begin{itemize}
+		\item Communicate results: everyone knows this model and how it works.
+		\item How should policy respond to shocks? Why?
+		\item Interpret policy actions through lens of NK model.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+\end{document}
+
+
+
+
+
+
