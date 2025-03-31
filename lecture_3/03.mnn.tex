@@ -1,0 +1,1183 @@
+%%
+% Please see https://bitbucket.org/rivanvx/beamer/wiki/Home for obtaining beamer.
+%%
+%\documentclass[11pt,aspectratio=169]{beamer}
+%\documentclass[11pt,aspectratio=169,xcolor={dvipsnames}]{beamer}
+
+\documentclass[11pt,aspectratio=169,xcolor={dvipsnames},hyperref={pdftex,pdfpagemode=UseNone,hidelinks,pdfdisplaydoctitle=true},usepdftitle=false]{beamer}
+\usepackage{presentation}
+
+
+\title{Lecture 3: Evidence on Monetary Non-Neutrality}
+\author{Juan Herre\~{n}o\\UCSD}
+
+% Enter presentation title to populate PDF metadata:
+\newcommand{\Cov}{\text{Cov}_\lambda}
+\newcommand{\El}{\mathbb{E}_\lambda}
+\newcommand{\mm}{\text{{\fontfamily{qzc}\selectfont m}}}
+
+\begin{document}
+
+\maketitle
+
+
+
+\begin{frame}{Effects of Monetary Policy?}
+\begin{itemize}
+\item Central question in macroeconomics:
+\begin{itemize}
+\item Monetary policy is a central macroeconomic policy tool
+\item Answer helps distinguish between competing views of how the world works more generally \pause
+\end{itemize}
+\item Consensus within mainstream U.S. media that effects are large
+\item No consensus in many other countries
+\item Much controversy in academia (Often quite heated and antagonistic) \pause
+\item Scientific question!! 
+\begin{itemize}
+\item Conclusive empirical evidence should be able to settle this issue \\ (for those willing to base opinion on evidence as opposed to ideology)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Why Don't We Already Know?}
+Given central importance, how can we not already know? \pause
+\begin{itemize}
+\item {\color{red}{Changes in monetary policy occur for a reason!!}}
+\item Purpose of central banks to conduct systematic policy that reacts to developments in economy
+\item Fed employs hundreds of PhD economists to pore over data
+\item Leaves little room for exogenous variation in policy
+\end{itemize}
+\end{frame}
+ 
+
+\begin{frame}{Endogeneity of Monetary Policy}
+Fed lowered interest rates aggressively in fall of 2008
+\begin{itemize}
+\item Done in response to worsening financial crisis \pause 
+\item Consider simple OLS regression:
+\[ \Delta y_{t} = \alpha + \beta \Delta i_{t} + \epsilon_{t} \] \pause \vspace{-15pt}
+\item This regression will not identify effects of policy
+\item Financial crisis -- event that induced Fed to act -- is a confounding factor \\ (in error term and correlated with $\Delta i_{t}$)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{What Is the Best Evidence We Have?}
+Emi Nakamura and J\'on Steinsson asked prominent macroeconomists, most common answers are:\footnote{\baselineskip=11pt Of course, a significant fraction say something along the lines of ``I know it in my bones that monetary policy has no effect on output.''}
+\begin{itemize}
+\item Friedman and Schwartz 63
+\item Volcker disinflation
+\item Mussa 86
+\end{itemize}
+\bigskip
+Any mention of VARs and evident from other modern econometric methods is conspicuous by its absence 
+\end{frame}
+
+
+\begin{frame}{Types of Evidence}
+\begin{itemize}
+\item Evidence from Large Shocks
+\item Discontinuity-Based Evidence / High-Frequency Evidence
+\item Evidence from the Narrative Record
+\item Controlling for Confounding Factors
+\begin{itemize}
+\item Structural Vector Autoregressions
+\item Romer and Romer (2004)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+{  \setbeamercolor{background canvas}{bg=white}
+	\begin{frame}
+		\addtocounter{framenumber}{-1}
+		\thispagestyle{empty}
+		
+		\begin{center}
+			{\Large Evidence from Large Shocks}
+		\end{center}
+		
+	\end{frame}
+}
+
+
+\begin{frame}{Industrial Production in U.S. Great Depression}
+\begin{figure}
+\centering
+\includegraphics[width =0.7   \textwidth]{FiguresTables/IndustrialProductionGreatDepression.pdf}
+\end{figure}
+\vspace{-28pt}
+{\scriptsize Source: Nakamura and Steinsson (2018)}
+\end{frame}
+
+\begin{frame}{Volcker Disinflation}
+\begin{figure}
+\centering
+\includegraphics[width =0.7   \textwidth]{FiguresTables/Volcker.pdf}
+\end{figure}
+\vspace{-25pt}
+{\scriptsize Blue: Fed funds rate (left). Red: 12-month inflation (left). Green: Unemployment (right).}
+\end{frame}
+
+
+{  \setbeamercolor{background canvas}{bg=white}
+	\begin{frame}
+		\addtocounter{framenumber}{-1}
+		\thispagestyle{empty}
+		
+		\begin{center}
+			{\Large Discontinuity-Based Evidence}
+		\end{center}
+		
+	\end{frame}
+}
+
+\begin{frame}{Monetary Policy and Relative Prices}
+\begin{itemize}
+\itemsep1em 
+\item Strong evidence for effects of monetary policy on relative prices
+\item Important reason: Can be assessed using discontinuity-based identification
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mussa 86 -- Breakdown of Bretton Woods}
+\begin{figure}
+\centering
+\includegraphics[width =0.7   \textwidth]{FiguresTables/Mussa.pdf}
+\end{figure}
+\vspace{-25pt}
+{\scriptsize Change in U.S. - German real exchange rate. Source: Nakamura and Steinsson (2018)}
+\end{frame}
+
+\begin{frame}{Monetary Policy and Real Exchange Rate}
+\begin{itemize}
+\itemsep1em
+\item Bretton Woods system of fixed exchange rates breaks down in Feb 73
+\begin{itemize}
+\item This is a pure high-frequency change in monetary policy 
+\end{itemize}
+\item Sharp break in volatility of \textbf{real} exchange rate \pause 
+\item Identifying assumption: 
+\begin{itemize}
+\item Nothing else changed {\color{red}{discontinuously}} in Feb 73
+\end{itemize}
+\item Imbalances had been building up gradually 
+\begin{itemize}
+\item More inflationary policy in US than in Germany, Japan, etc. 
+\item US running substantial current account deficit
+\item Intense negotiations for months about future of system
+\item Hard to see anything else that discontinuously changes in Feb 73
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Monetary Policy and Real Interest Rates}
+\begin{itemize}
+\itemsep1em
+\item High-frequency evidence on \textbf{real} interest rates:
+\begin{itemize}
+\item Look at narrow time windows around FOMC announcements
+\item Measure real interest rate using yields on TIPS
+\end{itemize}
+\item Identifying assumption:
+\begin{itemize}
+\item Little else happens during narrow window (30-minutes)
+\item Changes must be due to what Fed did and announced
+\end{itemize}
+\item Nominal and real rates respond roughly one-for-one several years \\ into term structure {\footnotesize (see, e.g., Hansen-Stein 15, Nakamura-Steinsson 18)}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Evidence on Relative Prices}
+Advantages:
+\begin{itemize}
+\item Effect on relative prices can be estimated using discontinuity-based approaches
+\end{itemize} \pause
+
+
+\vspace{15pt}
+Disadvantages: 
+\begin{itemize}
+\item No direct link to output
+\item Effects depend on how we interpret price changes \linebreak (information, risk premia) 
+\item Effect on output depends on various other parameters \\ in the ``real'' model (e.g., IES)  
+\end{itemize} 
+\end{frame}
+
+
+\begin{frame}{High-frequency Evidence on Output?}
+\begin{itemize}
+\itemsep1em
+\item Much weaker! \\ {\small (e.g., Cochrane-Piazzesi 02, Angrist et al. 17)}
+\begin{itemize}
+\item Output not observed at high frequency
+\item Monetary policy  may affect output with ``long and variable lags'' 
+\item Too many other shocks occur over several quarters
+\item Not enough statistical power to estimate effects on output \\ using this method 
+\end{itemize} \pause 
+\item But, effect on relative prices is -- arguably -- the key empirical issue
+\begin{itemize}
+\item Relative prices affect output in all models
+\item Monetary and non-monetary models (e.g., Keynesian versus Neoclassical) differ sharply on whether monetary policy can affect relative prices
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+{  \setbeamercolor{background canvas}{bg=white}
+	\begin{frame}
+		\addtocounter{framenumber}{-1}
+		\thispagestyle{empty}
+		
+		\begin{center}
+			{\Large Evidence from the Narrative Record}
+		\end{center}
+		
+	\end{frame}
+}
+
+\begin{frame}{Narrative Evidence -- Romer-Romer 89}
+Romer-Romer 89:
+\begin{itemize}
+\item Fed records can be used to identify natural experiments
+\item Specifically: ``Episodes in which the Federal Reserve attempted to exert a contractionary influence on the economy in order to reduce inflation.''
+\item Six episodes (Romer-Romer 94 added a seventh)
+\item After each one, unemployment rises sharply
+\item Strong evidence for substantial real effects of monetary policy
+\end{itemize}
+
+\vspace{20pt}
+{\footnotesize (Paper also contains an interesting critical assessment of Friedman-Szhwartz 63)}
+\end{frame}
+
+
+\begin{frame}{Romer-Romer 89 Dates}
+\begin{figure}
+\centering
+\includegraphics[width =0.7   \textwidth]{FiguresTables/RomerRomer.pdf}
+\end{figure}
+\vspace{-25pt}
+{\scriptsize Unemployment rate. Vertical lines are Romer-Romer 89 dates. Source: Nakamura and Steinsson (2018)}
+\end{frame}
+
+
+\begin{frame}{Romer-Romer 89 -- Critiques}
+\begin{itemize}
+\itemsep1em 
+\item Process for selecting the shock dates is opaque
+\begin{itemize}
+\item High cost of replication
+\item Similar critique applies to many complex econometric methods
+\end{itemize}
+\item Few data points
+\begin{itemize}
+\item May happen to be correlated with other shocks
+\item Hoover-Perez 94 point out high correlation with oil shocks
+\end{itemize}
+\item Shocks predictable suggesting endogeneity
+\begin{itemize}
+\item Difficult to establish convincingly due to overfitting concerns
+\item Cumulative number of predictability regressions run hard to know
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height = 0.90   \textheight]{FiguresTables/NakamuraSteinsson2018TableA1.pdf}
+\end{figure}
+\vspace{-15pt}
+{\scriptsize Source: Nakamura and Steinsson (2018)}
+\end{frame}
+
+
+{  \setbeamercolor{background canvas}{bg=white}
+	\begin{frame}
+		\addtocounter{framenumber}{-1}
+		\thispagestyle{empty}		
+		\begin{center}
+			{\Large Controlling for Confounding Factors}
+		\end{center}	
+	\end{frame}
+}
+
+
+\begin{frame}{Detour: Linear RE Models and VARs}
+Large class of linear rational expectations models can be written as follows: (state space representation)
+\[ A Y_{t+1} = B Y_{t} + C \epsilon_{t+1} + D \eta_{t+1} \]
+where 
+\begin{itemize}
+\item $Y_{t}$ is an $n \times 1$ vector
+\item $E[\epsilon_{t+1} | I_{t} ] = 0$, $E[\eta_{t+1} | I_{t} ] = 0$
+\item $\epsilon_{t+1}$ are exogenous shocks ($m_1 \times 1$ vector)
+\item $\eta_{t+1}$ are prediction errors ($m_2 \times 1$ vector)
+\item Only some elements of $Y_{t+1}$ have initial conditions
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Example: New Keynesian Model}
+\begin{eqnarray*}
+\pi_{t} & = & E_{t} \pi_{t+1} + \kappa (y_{t} - y_{t}^{n}) \\
+y_{t}   & = & E_{t} y_{t+1} - \sigma (i_{t} - E_{t} \pi_{t+1} - r_{t}^{n} ) \\ 
+i_{t}   & = & \phi_{\pi} \pi_{t} + \phi_{y} y_{t} + \nu_{t} 
+\end{eqnarray*} \pause 
+Some manipulation yields:
+\begin{eqnarray*}
+\pi_{t+1} & = & \pi_{t} - \kappa y_{t} + \kappa y_{t}^{n} + \eta_{\pi,t+1} \\
+y_{t+1} + \sigma \pi_{t+1}  & = & y_{t} + \sigma i_{t} - \sigma r_{t}^{n} + \eta_{y,t+1} + \sigma \eta_{\pi,t+1} \\ 
+i_{t+1} - \phi_{\pi} \pi_{t+1} - \phi_{y} y_{t+1} & = & \nu_{t+1} 
+\end{eqnarray*}
+where $\eta_{\pi,t+1} = \pi_{t+1} - E_{t} \pi_{t+1}$ and $\eta_{y,t+1} = y_{t+1} - E_{t} y_{t+1}$ 
+\end{frame}
+
+
+\begin{frame}{Example: New Keynesian Model}
+
+{\scriptsize 
+\begin{eqnarray*}
+\lefteqn{ 
+\left[ \begin{array}{cccccc}  
+1 & 0 & 0 & 0 & 0 & 0 \\
+\sigma & 1 & 0 & 0 & 0 & 0 \\
+-\phi_{\pi} & -\phi_{y} & 1 & 0 & 0 & -1 \\ 
+0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 
+\end{array}
+ \right] 
+\left[ \begin{array}{c}
+\pi_{t+1} \\ y_{t+1} \\ i_{t+1} \\ y_{t+1}^{n} \\ r_{t+1}^{n} \\ \nu_{t+1} 
+\end{array} \right] = 
+\left[ \begin{array}{cccccc}  
+1 & -\kappa & 0 & \kappa & 0 & 0 \\
+0 & 1 & \sigma & 0 & -\sigma & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 \\ 
+0 & 0 & 0 & \rho_{\pi} & 0 & 0 \\
+0 & 0 & 0 & 0 & \rho_{y} & 0 \\
+0 & 0 & 0 & 0 & 0 & \rho_{i} 
+\end{array}
+ \right] 
+\left[ \begin{array}{c}
+\pi_{t} \\ y_{t} \\ i_{t} \\ y_{t}^{n} \\ r_{t}^{n} \\ \nu_{t} 
+\end{array} \right]
+} \\
+ & & \hspace{1.8in} + \left[ \begin{array}{ccc}  
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0 \\ 
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 
+\end{array}
+ \right] 
+\left[ \begin{array}{c}
+\epsilon_{1,t+1} \\ \epsilon_{2,t+1} \\ \epsilon_{3,t+1}
+\end{array} \right]
++ \left[ \begin{array}{cc}  
+1 & 0 \\
+\sigma & 1 \\
+0 & 0 \\ 
+0 & 0 \\
+0 & 0 \\
+0 & 0 
+\end{array}
+ \right] 
+\left[ \begin{array}{c}
+\eta_{\pi,t+1} \\ \eta_{y,t+1}
+\end{array} \right]
+\end{eqnarray*} }
+\begin{itemize} 
+\item Have assumed that $y_{t}^{n}$, $r_{t}^{n}$, and $\nu_{t}$ are AR(1)
+\item System comes with only three initial conditions (for $y_{t}^{n}$, $r_{t}^{n}$, and $\nu_{t}$)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Solving Linear Rational Expectations Models}
+\begin{itemize}
+\item State space representation:
+\[ A Y_{t+1} = B Y_{t} + C \epsilon_{t+1} + D \eta_{t+1} \]
+\item Solution:
+\[ Y_{t} = G Y_{t-1} + R \epsilon_{t} \]
+\item How to solve?
+\begin{itemize}
+\item Blanchard-Kahn 80. See, e.g., Sims 00 or lecture notes by Den Haan 
+\end{itemize}
+\item Notice: Solution of a linear RE model is a VAR
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Impulse Response Functions}
+\begin{itemize}
+\item Suppose we are interested in effect of $\epsilon_{3,0}$ on $y_{t}$ for $t \geq 0$ \\ {\small (Recall that $\epsilon_{3,0}$ is the innovation to the monetary shock)}
+\item Iterate forward the VAR starting at time 0:
+\[ Y_{t} = G^t Y_{-1} + G^{t-1} R \epsilon_{0} \]
+\item Suppose for simplicity that we start off in a steady state $Y_{-1} = 0$:
+\[ Y_{t} = G^{t-1} R \epsilon_{0} \]
+\item If we can estimate G and R, then we can calculate \\ dynamic causal effect of all structural shocks
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{VAR Estimation: Empirical Challenges}
+\[ Y_{t} = G Y_{t-1} + R \epsilon_{t} \]
+\begin{itemize}
+\item Some variables in true VAR may be unobservable
+\begin{itemize}
+\item In NK model example, $(y_{t}^{n}$, $r_{t}^{n}$, and $\nu_{t})$ are unobservable
+\item How about solving out for these variables?
+\item This typically transforms a VAR(p) into a VARMA($\infty$,$\infty$) \\ in the remaining variables
+\item Implicit assumption in VAR estimation that true VARMA($\infty$,$\infty$) \\ in observable variables can be approximated by a VAR(p) \\ {\footnotesize (Problem Set 3 will have you think more about this)}
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{VAR Estimation: Empirical Challenges}
+\[ Y_{t} = G Y_{t-1} + R \epsilon_{t} \]
+\begin{itemize}
+\setcounter{enumi}{1}
+\item How do we get from reduced form errors to structural errors?
+\begin{itemize}
+\item Suppose you estimate a VAR (i.e., estimate $n$ OLS regressions) 
+\item You will get:
+\[ Y_{t} = G Y_{t-1} + u_{t} \]
+where $u_{t}$ are reduced form errors with variance-covariance matrix $\Sigma$
+\item Unfortunately, $\Sigma$ not enough to identify $R$
+\item \textbf{Structural} VARs make additional assumptions to be able to identify $R$
+\begin{itemize}
+	\item Two ways of thinking about it: Identification of $R$ or identification of structural shocks $\epsilon_{t}$
+\end{itemize}
+\item Example: Short-run restrictions {\footnotesize (see Stock-Watson 01)}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Dynamic Causal Inference}
+Objective:
+\begin{itemize}
+\item Causal effect of change in monetary policy at time $t$ \\ on output / prices / etc. at time $t+j$
+\end{itemize}
+\vspace{10pt}
+Two steps:
+\begin{itemize}
+\item Identify shocks (exogenous variation in (say) monetary policy)
+\item Estimate effects of shocks on output / prices / etc.
+\end{itemize}
+\vspace{10pt}
+\begin{itemize}
+\item Important to consider these two steps separately
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{SVAR Identification of Monetary Shocks}
+\begin{itemize}
+\itemsep1em
+\item Common approach:
+\begin{itemize}
+\item Regress fed funds rate on output, inflation, etc. + a few lags of \\ fed funds rate, output, inflation, etc.
+\[ i_{t} = \alpha + \phi_{y} y_{t} + \phi_{\pi} \pi_{t} + [\mbox{four lags of } i_{t}, y_{t}, \pi_{t}] + \epsilon_{t} \]
+\item View residual as exogenous variation in monetary policy
+\end{itemize}
+\item Equivalent to performing a Cholesky decomposition on reduced form errors from VAR, ordering fed funds rate last {\footnotesize (See Stock-Watson 01)}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{SVARs: Identifying the Shocks}
+	\[ i_{t} = \alpha + \phi_{y} y_{t} + \phi_{\pi} \pi_{t} + [\mbox{four lags of } i_{t}, y_{t}, \pi_{t}] + \epsilon_{t} \]
+	What can go wrong? \pause
+	\begin{itemize}
+		\item Reverse causation:
+		\begin{itemize}
+			\item Assumption being made: Correlation between $i_{t}$ and ($\pi_{t}$, $y_{t}$) is due to \\ ($\pi_{t}$, $y_{t}$) influencing $i_{t}$ but not the other way around
+			\item If $i_{t}$ influences ($\pi_{t}$, $y_{t}$) (contemporaneously), we have a \\ ``simultaneous equation problem'' ($\epsilon_{t}$ correlated with ($\pi_{t}$, $y_{t}$))
+			\item Assumption being made: $i_{t}$ is ``fast-moving'' variable, while $\pi_{t}$ and $y_{t}$ are slow moving. So $i_{t}$ doesn't affect $\pi_{t}$ and $y_{t}$ contemporaneously
+		\end{itemize} 
+	\end{itemize} \pause
+	Often, the discussion of identification stops here and seems surprisingly inocuous. Where did the rabbit go into the hat?
+\end{frame}
+
+
+\begin{frame}{SVARs: Identifying the Shocks}
+	\[ i_{t} = \alpha + \phi_{y} y_{t} + \phi_{\pi} \pi_{t} + [\mbox{four lags of } i_{t}, y_{t}, \pi_{t}, \mbox{etc.}] + \epsilon_{t} \]
+	What can go wrong?
+	\begin{itemize}
+		\addtocounter{enumi}{1}
+		\item Omitted variables bias:
+		\begin{itemize}
+\item There may be other variables that affect $i_{t}$ and also $y_{t+j}$
+\item Fed bases policy on huge amount of data
+\begin{itemize}
+\item Banking sector, stock market, foreign developments, commodity prices, terrorist attacks, temporary investment tax credit, Y2K, etc., etc. 
+\end{itemize}
+\item Too many variables to include in regression!
+\item Any information used by Fed and not sufficiently controlled for by \\ included controls will result in endogenous variation in policy being \\ viewed as exogenous shock to policy
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Was 9/11 a Monetary Shock?}
+\begin{figure}
+\centering
+\includegraphics[width =0.99   \textwidth]{FiguresTables/CochranePiazzesi.pdf}
+\end{figure}
+\vspace{-15pt}
+{\scriptsize Dark line: Fed funds target. Light line/dots: 1-month eurodollar rate. * indicates unscheduled meeting. \\ \vspace{-6pt} Sample period: Dec 2000 - Feb 2002. Source: Nakamura and Steinsson (2018)}
+\end{frame}
+
+
+\begin{frame}{Was 9/11 a Monetary Shock?}
+\begin{itemize}
+\itemsep1em 
+\item According to structural VARs: Yes!?!
+\begin{itemize}
+\item Nothing had yet happened to controls in VAR
+\item Drop in rates cannot be explained, therefore an exogenous shock
+\end{itemize}
+\item In reality: Obviously not!
+\begin{itemize}
+\item Fed dropped rates in Sept 2001 in response to terrorist attack, \\ which affected Fed's assessment of future output growth and inflation
+\end{itemize}
+\item Any unusual (from perspective of VAR) weakness in output growth \\ after 9/11, perversely, attributed to exogenous easing of \\ monetary policy
+\item Highly problematic
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{News Shocks and VARs}
+\begin{itemize}
+	\item 9/11 an example of a news shock
+	\begin{itemize}
+		\item Almost nothing happened to contemporaneous output
+		\item But event contains news about future output
+	\end{itemize} \pause
+	\item Why not just include fast moving variables like stock/bond prices \\ in interest rate equation to capture news? \pause
+	\begin{itemize}
+		\item Only makes sense if these variables not affected by \\ contemporary monetary policy
+		\item But that is clearly not the case
+		\item Post-treatment controls (endogenous or ``bad'' controls)
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Identifying Assumptions in SVARs}
+\begin{itemize}
+\itemsep1em 
+\item``The'' identifying assumption in a monetary VAR often described as:
+\begin{itemize}
+\item Fed funds rate does not affect output, inflation, etc. contemporaneously
+\end{itemize}
+\item Seems like magic:
+\begin{itemize}
+\item You make one relatively innocuous assumption
+\item Viol\'{a}: You can estimate dynamic causal effects of monetary policy 
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Identifying Assumptions in SVARs}
+\begin{itemize}
+\itemsep1em 
+\item Timing assumption not only identifying assumption being made
+\item Timing assumption rules out reverse causality
+\begin{itemize}
+\item Contemporaneous correlation assumed to go from output to interest rates
+\item Not other way around 
+\end{itemize}
+\item Bigger concern: Omitted variables bias
+\begin{itemize}
+\item Monetary policy and output may be reacting to some other shock
+\item If not sufficiently proxied by included controls, this shock will cause \\ omitted variables bias (e.g., 9/11)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Romer-Romer 04}
+\begin{itemize}
+\itemsep1em 
+\item Hopeless to control individually for everything in Feds information set
+\item Alternative approach:
+\begin{itemize}
+\item Control for Fed's own forecasts (Greenbook forecasts)
+\end{itemize}
+\item Key idea: 
+\begin{itemize}
+\item Endogeneity of monetary policy comes from \textbf{one thing only}: \\ What Fed thinks will happen to the economy
+\item Controlling for this is sufficient
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Constructing the Shocks Series}
+Romer-Romer's shock series addresses two problems:
+\begin{itemize}
+\item Fed has imperfect control over fed funds rate
+\begin{itemize}
+\item More of a problem before Greenspan era
+\item Movements in FFR relative to FOMC target are endogenous \\ (FFR rises relative to target in response to good news about future output)
+\item Romer-Romer construct FFR target series
+\end{itemize} \pause
+\item Movements in FOMC's FFR target are endogenous 
+\begin{itemize}
+\item ``Anticipatory effects'' important \\(e.g., Fed lowers rates in anticipation of economic weakness)
+\item Use of Fed's Greenbook forecasts control for such endogeneity \\ (Greenbook typically prepared six days before meeting)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Controlling for Greenbook Forecast}
+Romer-Romer's specification:
+\begin{eqnarray*} 
+\Delta ff_{m} & = & \alpha + \beta ffb_{m} + \sum_{i=-1}^{2} \gamma_{i} \Delta \tilde{y}_{mi} + \sum_{i=-1}^{2} \lambda_{i} (\Delta \tilde{y}_{mi}-\Delta \tilde{y}_{m-1,i}) \\ 
+ & & + \sum_{i=-1}^{2} \phi_{i} \tilde{\pi}_{mi} + \sum_{i=-1}^{2} \theta_{i} (\tilde{\pi}_{mi} - \tilde{\pi}_{m-1,i}) + \rho \tilde{u}_{m0} + \epsilon_{m} 
+\end{eqnarray*}
+\begin{itemize}
+\item $\Delta ff_{m}$ change in intended FFR at meeting
+\item $ffb_{m}$ level before meeting 
+\item $\tilde{y}$, $\tilde{\pi}$, $\tilde{u}$ forecasts of output, inflation, and unemployment
+\item Both forecasts and change in forecasts since last meeting included
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Does this Make Sense?}
+\begin{itemize}
+\item Residual $\epsilon_{m}$ considered exogenous monetary policy shock
+\item Does this make sense? \pause
+\item Romer-Romer 04:
+
+\medskip
+\begin{quote}
+It is important to note that the goal of this regression is not to estimate the Federal Reserve's reaction function as well as possible. What we are trying to do is to purge the intended funds rate series of movements taken in response to useful information about future economic developments. Once we have accomplished this, it is desirable to leave in as much of the remaining variation as possible.
+\end{quote}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cochrane (2004)}
+\begin{quote}
+\textbf{Proposition 1:} To measure the effects of monetary policy on \textbf{output} it is enough that the shock is orthogonal to \textbf{output} forecasts. The shock does not have to be orthogonal to price, exchange rate or other forecasts. It may be predictable from time t information; it does not have to be a shock to agent's or the Fed's entire information set.
+\end{quote}
+(no proof provided)
+
+\vspace{10pt}
+\begin{quote}
+All the shock has to do is remove the reverse causality from output forecasts.
+\end{quote}
+\end{frame}
+
+
+\begin{frame}{Cochrane (2004)}
+Preferred specification for effects on output:
+\[\Delta ff_{m} = \alpha + \sum_{i=-1}^{2} \gamma_{i} \Delta \tilde{y}_{mi}  + \beta ff_{m-1} + \delta \Delta ff_{m-1} + \epsilon_{m}^{y} \]
+Preferred specification for effects on inflation:
+\[\Delta ff_{m} = \alpha + \sum_{i=-1}^{2} \gamma_{i} \Delta \tilde{\pi}_{mi}  + \beta ff_{m-1} + \delta \Delta ff_{m-1} + \epsilon_{m}^{\pi} \] \vspace{-10pt} \pause
+
+\begin{itemize}
+	\item Lagged FFR only included to make shocks serially uncorrelated, \\ which simplifies interpretation \pause
+	\item No need to include other controls
+	\item In fact, better not to, since this keeps more shocks
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Romer-Romer 04 / Cochrane 04: \\ What Is a Monetary Shock?}
+\begin{itemize}
+\itemsep1em
+\item Fed does not roll dice 
+\item Every movement in intended fed funds rate is a response to something
+\item Some are responses to something that directly affects \\ outcome variable of interest
+\begin{itemize}
+\item These are endogenous
+\end{itemize}
+\item Reactions to anything else (exchange rate, political pressure, etc) \\ \textbf{conditional on output forecast} count as a shock
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{What Are the Shocks?}
+\begin{itemize}
+	\item Variation in Fed operating procedure important
+	\begin{itemize}
+		\item E.g., emphasis on monetary quantities in 1979-1982
+	\end{itemize}
+	\item Variation in policy makers' beliefs about workings of economy
+	\begin{itemize}
+		\item In early 1970's Fed believed inflation highly unresponsive to slack \\ (Romer-Romer 02)
+	\end{itemize}
+	\item Variation in policy maker preferences/goals
+	\begin{itemize}
+		\item E.g., time-varying distaste for inflation
+	\end{itemize}
+	\item Political influences
+	\begin{itemize}
+		\item E.g., Arthur Burns set loose policy in 1977 to get re-appointed
+	\end{itemize}
+	\item Pursuit of other objectives
+	\begin{itemize}
+		\item At some times, Fed concerned about exchange rate
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Romer-Romer Shocks}
+\begin{figure}
+\centering
+\includegraphics[height =0.75   \textheight]{FiguresTables/RomerRomer2004Figure1a.pdf}
+\end{figure}
+\vspace{-5mm}
+{\scriptsize Source: Romer and Romer (2004).} 
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.95   \textheight]{FiguresTables/RomerRomer2004Figure1.pdf}
+\end{figure}
+\vspace{-5mm}
+{\scriptsize Source: Romer and Romer (2004).} 
+\end{frame}
+
+
+\begin{frame}{Predictable Monetary Shocks?}
+\begin{itemize}
+\item Cochrane (2004) argues monetary shocks can be predictable
+\item Does this make sense? \pause
+\item[]
+\item It does not in and of itself cause endogeneity concerns
+\item It does complicate interpretation
+\item Shocks can have effects both upon announcement \\ and when they are implemented
+\begin{itemize}
+\item Upon announcement: Yield curve will move
+\item Upon implementation: Short rates themselves move
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{What Do We Do with These Shocks?}
+\begin{itemize}
+\itemsep2em 
+\item Dynamic causal inference involves two steps:
+\begin{itemize}
+\item Identifying exogenous variation in policy (the shocks)
+\item Estimating an impulse response given the shocks
+\end{itemize}
+\item Three methods to construct impulse response:
+\begin{itemize}
+\item Directly regress variable of interest on shock (Jorda 05)
+\item Iterate forward VAR
+\item Iterate forward univariate AR specification (Romer-Romer 04)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Direct Regressions -- Jorda Specification}
+\begin{itemize}
+\item Simple approach: Regress variable of interest directly on shock: \\ (perhaps including some pre-treatment controls)
+\[ y_{t+j} - y_{t-1} = \alpha + \beta \nu_{t} + \Gamma X_{t-1} + \epsilon_{t} \] \vspace{-15pt}
+\begin{itemize}
+\item Variable of interest: $y_{t+j} - y_{t-1}$
+\item Monetary shock: $\nu_{t}$
+\item Pre-treatment controls: $X_{t-1}$
+\end{itemize}
+\item Separate regression for each horizon $j$
+\item This imposes minimal structure (other than linearity) 
+\item Specification advocated by Jorda 05 \\ (often called ``local projection'')
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{VAR Impulse Responses}
+\begin{itemize}
+\itemsep1em 
+\item Construct impulse response by iterating forward entire \\ estimated VAR system
+\item Embeds whole new set of strong identifying assumptions
+\begin{itemize}
+\item Not only interest rate equation that must be correctly specified
+\item Entire system must be correct representation of dynamics of \\ all variables in the system
+\item I.e., whole model must be correctly specified \\ (including number of shocks, number of lags, relevant variable observable)
+\item Recall earlier discussion of true VARMA($\infty$,$\infty$) in observed variables being approximated by VAR(p)
+\item See discussion in Plagborg-Moller and Wolf 19
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Romer-Romer 04 Impulse Response}
+\[ \Delta y_{t} = a_{0} + \sum_{k=1}^{11} a_{k} D_{kt} + \sum_{i=1}^{24} b_{i} \Delta y_{t-i} + \sum_{j=1}^{36} c_{j} S_{t-j} + e_{t} \]
+\begin{itemize}
+\item $\Delta y_{t}$ monthly change in industrial production
+\item $D_{kt}$ month dummies (they use seasonally unadjusted data)
+\item $S_{t}$ monetary shocks
+\item Assume money doesn't affect output contemporaneously \\ (No contemporaneous monetary shock)
+\item Impulse response: 
+\begin{itemize}
+\item Effect on $y_{t+1}$ is $c_{1}$
+\item Effect on $y_{t+2}$ is $c_{1} + (c_{2} + b_{1}c_{1})$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lagged Dependent Variables}
+\[ \Delta y_{t} = a_{0} + \sum_{k=1}^{11} a_{k} D_{kt} + \sum_{i=1}^{24} b_{i} \Delta y_{t-i} + \sum_{j=1}^{36} c_{j} S_{t-j} + e_{t} \]
+\begin{itemize}
+\item Inclusion of lagged dependent variables may induce bias
+\item $b_{i}$s are estimated off of dynamics of output to \textbf{all shocks}
+\item If dynamics after monetary shocks are different, inclusion of \\ lagged output terms will induce bias \pause
+\item Extreme example:
+\begin{itemize}
+\item Two shocks: money and weather
+\item Weather i.i.d. while money is persistent
+\item Weather shocks induce negative autocorrelation in output
+\item Estimated effects of monetary shocks will be affected by this
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height = 0.95   \textheight]{FiguresTables/MonetaryShocksIndProd96.pdf}
+\end{figure}
+\vspace{-12pt}
+{\scriptsize Black line: Industrial production. Blue line: Real interest rate}
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height = 0.95   \textheight]{FiguresTables/MonetaryShocksCPI96.pdf}
+\end{figure}
+\vspace{-12pt}
+{\scriptsize Black line: CPI. Blue line: Nominal interest rate}
+\end{frame}
+
+
+{  \setbeamercolor{background canvas}{bg=white}
+	\begin{frame}
+	\addtocounter{framenumber}{-1}
+	\thispagestyle{empty}		
+	\begin{center}
+		{\Large High Frequency Identification}
+	\end{center}	
+\end{frame}
+}
+
+
+\begin{frame}{High Frequency Identification}
+\begin{itemize}
+	\item A substantial amount of monetary news is released \\ at the end of each FOMC meeting
+	\item Possible to use a ``discontinuity'' based identification approach
+	\item Look at changes in interest rates during a narrow window \\ around FOMC meeting
+	\begin{itemize}
+		\item One-day window or 30-minute window
+	\end{itemize}
+	\item Basic idea: Changes in interest rates at these times dominated \\ by monetary announcement
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Cook and Hahn 89}
+\begin{itemize}
+\item Policy indicator: Change in fed funds rate target
+\item Variables of interest: Longer-term nominal rates
+\item[] (One-day windows, Sept 74 - Sept 79) 
+\item Question: Can the Fed control \textit{nominal} interest rates?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.9   \textheight]{FiguresTables/CookHahn1989Table3.pdf}
+\end{figure}
+\vspace{-5mm}
+{\scriptsize Source: Cook and Hahn (1989).}
+\end{frame}
+
+
+\begin{frame}{Cook and Hahn 89}
+\begin{itemize}
+\item 100bp change in fed funds target moves 3M Tbill rate by only 55bp
+\item Suggests that Fed can't move nominal interest rates very effectively
+\item[]
+\item Really?
+\item What concern might arise with this approach? \pause
+\begin{itemize}
+\item Some changes in funds rate target might be anticipated
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.83   \textheight]{FiguresTables/CochranePiazzesiLeftPanel.pdf}
+\end{figure}
+\vspace{-4mm}
+{\scriptsize Source: Nakamura and Steinsson (2018). Fed funds target and 1 month Eurodollar rate in 2001. \\ \vspace{-5pt} * indicates move at unscheduled meeting of FOMC}
+\end{frame}
+
+\begin{frame}{Kuttner 01}
+\begin{itemize}
+\item Policy indicator: Change in fed funds future for current month
+\item Variables of interest: Longer-term nominal rates
+\item[] (One-day window, June-89 - Feb-00) 
+\item[]
+\item Able to distinguish between anticipated and unanticipated \\ movements in fed funds rate
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.98  \textheight]{FiguresTables/Kuttner2001Table2.pdf}
+\end{figure}
+\vspace{-7mm}
+{\scriptsize Source: Kuttner (2001)}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.9  \textheight]{FiguresTables/Kuttner2001Table3.pdf}
+\end{figure}
+\vspace{-6mm}
+{\scriptsize Source: Kuttner (2001). Responses in basis points to 100 basis point change.}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.85  \textheight]{FiguresTables/Kuttner2001Table1.pdf}
+\end{figure}
+\vspace{-6mm}
+{\scriptsize Source: Kuttner (2001). Responses in basis points to 100 basis point change.}
+\end{frame}
+
+\begin{frame}{Summing Up}
+\begin{itemize}
+\item Crucial to distinguish between anticipated and unanticipated \\ movements in fed funds rate
+\item Increasingly important in an era of greater monetary policy transparency \\ (where markets anticipate much of the monetary policy action)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Do Actions Speak Loader Than Words?}
+FOMC Meeting on January 28, 2004:
+\begin{itemize}
+\item No change in Fed Funds Rate, fully anticipated
+\item Unexpected change in Fed Funds Rate: -1 bp
+\item Kuttner's monetary shock indicator implies essentially no shock \pause
+\item However, FOMC statement dropped the phrase:
+\item[] ``policy accommodation can be maintained for a considerable period'' 
+\item Two- and five-year yields jumped 20-25 bp \\ (largest movements around an FOMC announcement for years)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Forward Guidance}
+\begin{itemize}
+\item January 28, 2004 FOMC meeting example of forward guidance 
+\item Forward guidance: Statements by central bank meant to manage market expectations about what it is going to do in the future \pause 
+\item Has become a major part of how monetary policy is conducted \\ (especially at zero lower bound) 
+\item Implies that unexpected changes in fed funds rate are poor \\ indicator for size monetary shock
+\begin{itemize}
+\item In past 15 years, Fed has usually managed expectations to \\ the point that there is no surprise about action at meeting
+\item Main news about adjustments to language in post-meeting statement \\ containing information about future moves
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Gurkaynak-Sack-Swanson 05}
+\begin{itemize}
+\item Consider changes in 5 fed funds and eurodollar futures:
+\begin{itemize}
+\item Fed Funds future for current month (scaled)
+\item Fed Funds future for month of next FOMC meeting (scaled)
+\item 3-month Eurodollar futures at horizons of 2Q, 3Q, 4Q
+\end{itemize}
+\item These span first year of term structure \pause
+\item They then ask: Are effects of monetary policy announcements adequately characterized by a single factor? \\ 
+(i.e., unexpected changes in current fed funds rate)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Path Factor}
+\begin{itemize}
+\itemsep1em 
+\item GSS 05 perform principle component analysis on \\ the 5 fed funds and eurodollar futures
+\item Two factors needed to characterize effect of FOMC announcements:
+\begin{itemize}
+\item Target factor (unexpected changes in current fed funds rate)
+\item Path factor (changes in future rates orthogonal to changes in current rate) \pause
+\end{itemize}
+\item Bulk of response of longer-term rates is to path factor
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.70  \textheight]{FiguresTables/GurkaynakSackSwansonIJCB2005Table5.pdf}
+\end{figure}
+\vspace{-6mm}
+{\scriptsize Source: Gurkaynak-Sack-Swanson (2005). Window length: 30-minutes.}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.85  \textheight]{FiguresTables/GurkaynakSackSwansonIJCB2005Table4.pdf}
+\end{figure}
+\vspace{-6mm}
+{\scriptsize Source: Gurkaynak-Sack-Swanson (2005)}
+\end{frame}
+
+
+\begin{frame}{Threats to Identification}
+\begin{itemize}
+\item If there are other shocks during window: 
+\begin{itemize}
+\item Policy indicator will be contaminated by these shocks because Fed may respond (now or in the future)
+\item These same shocks may directly affect future variables		
+\item No longer estimating a causal effect of monetary shocks
+\end{itemize}
+\item If entire response of interest rates doesn't occur in narrow window: 
+\begin{itemize}
+\item Estimate of monetary shock biased because shock size biased
+\item Might be over-reaction or under-reaction
+\end{itemize}
+\end{itemize}
+\medskip
+Key Question: How long should the window be?
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.96  \textheight]{FiguresTables/GurkaynakSackSwansonIJCB2005Figure1.pdf}
+\end{figure}
+\vspace{-6mm}
+{\scriptsize Source: Gurkaynak-Sack-Swanson (2005)}
+\end{frame}
+
+% After 1994, FOMC has issued a statement when it acts (and after 1999 also when it does not act). Since then, reaction of market is swift and complete within 30-minutes. 30-minute window also drops most other shocks.
+% Before 1994, FOMC did not issue a statement. Market must wait until following open market operation to infer what Fed did. But market reacted fairly swiftly at that point. 
+% Some times FOMC moved in response to other data releases such as employment reports. In this case, one-day window would yield inaccurate results.
+
+\begin{frame}{The Power Problem}
+\begin{itemize}
+\item HFI arguably the cleanest way to identify monetary shocks
+\item[] ... but shocks are small and sample short
+\item Regressions on future output very imprecise \\ (Cochrane-Piazzesi 02, Angrist-Jorda-Kuersteiner 17)
+\item Angrist-Jorda-Kuersteiner 17
+\begin{itemize}
+\item Policy indicator: unexpected fed funds target changes
+\item Window: one-day (although slightly unusual methods)
+\item Outcome variable: inflation, industrial production
+\item Allow for different effects of increases and decreases
+\end{itemize}
+\end{itemize}		
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.92  \textheight]{FiguresTables/AngristJordaKuersteiner2017Figure4.pdf}
+\end{figure}
+\vspace{-6mm}
+{\scriptsize Source: Angrist-Jorda-Kuersteiner (2017). 90\% confidence bands. Vertical axis is in months.}
+\end{frame}
+
+
+\begin{frame}{The Power Problem}
+
+Why are effects on output and inflation so imprecise?
+\begin{itemize}
+\item Shocks are small:  High frequency method leaves out lots of shocks (perhaps vast majority)
+\begin{itemize}			
+\item All news about monetary policy on non-FOMC days not captured
+\end{itemize}
+\item Sample period is short (only back to late 1980's)
+\item Outcomes are noisy
+\begin{itemize}
+\item Many other shocks affect output and inflation over a 1 year horizon
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{The Power Problem}
+Potential solution: 
+\begin{itemize}
+\item Focus on outcome variables that move \textbf{contemporaneously}
+\item[] e.g., real yields and forwards (from TIPS) \\ (Hanson-Stein 15, Nakamura-Steinsson 18)
+\item Essentially a discontinuity based identification strategy
+\end{itemize}		
+\end{frame}
+
+
+\begin{frame}{Nakamura-Steinsson 2018}
+\begin{itemize}
+	\item Policy indicator: Policy news shock
+	\begin{itemize}
+		\item First principle component of change in GSS 05's 5 interest rate futures \\ over narrow window around scheduled FOMC announcements 
+		\item Similar to GSS 05 path factor, but simpler (no 2nd factor)
+	\end{itemize}
+	\item Variables of interest: Nominal and real yields and forward rates
+	\item[] (30-minute window, 2000-2014)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[height =0.9  \textheight]{FiguresTables/NakamuraSteinsson2016Table1.pdf}
+\end{figure}
+\vspace{-6mm}
+{\scriptsize Source: Nakamura-Steinsson (2016). Window: 30-minutes.}
+\end{frame}
+
+
+\begin{frame}{Large Effects on Real Rates}
+Main take-away:
+\begin{itemize}
+	\item Nominal and real rates move one-for-one several years \\ out into term structure
+	\item Response of break-even inflation is delayed and small 
+\end{itemize}
+\medskip 
+Challenges:
+\begin{itemize}
+	\item Background noise
+	\item Risk Premia
+	\item Fed information effects
+\end{itemize}
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
