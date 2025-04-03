@@ -56,7 +56,7 @@
 \begin{itemize}
 \item Household problem
 \begin{align*}
-\max_{\{C_{it}\},N_t } \mathbb{E}_0 \sum_{t=0}^{\infty} u(C_t,N_t)\\
+\max_{\{C_{it}\},N_t } \mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t u(C_t,N_t)\\
 \text{subject to:   } \int_0^1 P_{it} C_{it} + A_{t+1} \leq W_t N_t +  A_t(1+i)\\
 C_t = \left(\int_0^1 C^{\frac{\theta-1}{\theta}}_{it} di \right)^{\frac{\theta}{\theta-1}}
 \end{align*}
@@ -125,7 +125,7 @@ $$P_t = \lambda_t$$
 
 \begin{frame}{Second stage: Utility maximization}
 \begin{align*}
-\max_{\{C_{it}\},N_t } \mathbb{E}_0 \sum_{t=0}^{\infty} u(C_t,N_t)\\
+\max_{\{C_{it}\},N_t } \mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t u(C_t,N_t)\\
 \text{subject to:   } {\color{red}{P_tC_t}} + A_{t+1} \leq W_t N_t +  A_t(1+i)
 \end{align*}
 \begin{itemize}
