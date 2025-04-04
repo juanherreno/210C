@@ -1,0 +1,464 @@
+%%
+% Please see https://bitbucket.org/rivanvx/beamer/wiki/Home for obtaining beamer.
+%%
+%\documentclass[11pt,aspectratio=169]{beamer}
+%\documentclass[11pt,aspectratio=169,xcolor={dvipsnames}]{beamer}
+
+\documentclass[11pt,aspectratio=169,xcolor={dvipsnames},hyperref={pdftex,pdfpagemode=UseNone,hidelinks,pdfdisplaydoctitle=true},usepdftitle=false]{beamer}
+\usepackage{presentation}
+
+
+\title{Lecture 6: Optimal Monetary Policy}
+\author{Juan Herre\~{n}o\\UCSD}
+
+% Enter presentation title to populate PDF metadata:
+\newcommand{\Cov}{\text{Cov}_\lambda}
+\newcommand{\El}{\mathbb{E}_\lambda}
+\newcommand{\mm}{\text{{\fontfamily{qzc}\selectfont m}}}
+\usepackage{cancel}
+\begin{document}
+
+\maketitle
+
+
+\begin{frame}{Goals}
+\begin{itemize}
+\item How should monetary policy be conducted?
+\begin{itemize}
+\item Broad qualitative consensus among policymakers
+\begin{itemize}
+\item Central banks are in charge of maintaining low and stable inflation
+\begin{itemize}
+\item Explicit in the Federal Reserve Act of 1977
+\item Explicit in the Maastricht treaty as the goal of the ECB
+\item Written in the law and constitutions of countries around the world
+\end{itemize}
+\item Actual monetary policy assumes at least some degree of concern with stabilization of economic activity
+\begin{itemize}
+\item Explicit in the case of the US
+\item Not explicit in the case of the ECB
+\end{itemize}
+\end{itemize}
+\item Suggests the central bank wants to minimize a ``loss-function'' that depends on ``deviations'' of output and inflation from ``target''
+\item Many questions
+\begin{itemize}
+\item What is the relative weight of inflation vs. output?
+\item What is the right measure of economic activity to stabilize?
+\item What is the right inflation index to stabilize?
+\item Should the price level or the inflation rate be stabilized?
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Approach}
+\begin{itemize}
+\item In this lecture we will see what the NK model has to say about optimal monetary policy
+\item The notion of optimality is to maximize the welfare of private agents
+\item This \textit{utility-based} approach to policy design has a long tradition in public finance.
+\begin{itemize}
+\item Examples are the optimal capital tax rate, optimal unemployment insurance, ...
+\end{itemize}
+\item Notice our consumers do not care directly about prices. They care about leisure and consumption
+\item But as taxes can create deadweight losses, inflation can too. We saw two potential sources in Lecture 5
+\begin{itemize}
+\item The aggregate markup can change, inducing too much or too little production
+\item Price dispersion may change inducing allocative efficiency costs (misallocation). goods with the same marginal cost will have different prices
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Loss Function}
+\begin{itemize}
+\item The next few of slides provide a heuristic derivation of the Loss Function.
+\item I show the math only to make clear the connection between economic objects
+\item I will never ask you to know this math by heart in a final/qualifying exam
+\item Not because it's too hard. Just because it's pointless for you to memorize it
+\item I will just gloss over key steps in the lecture
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Notation:
+\begin{itemize}
+\item $U_t$: $U(C_t,N_t)$.
+\item $U_t^n$: $U_t$ evaluated at the flexible price allocation
+\item $U$: $U_t$ in the steady state (no shocks whatsoever).
+\item $U_c$ and $U_n$: partial derivatives of $U_t$ with respect to $C$, $N$ evaluated in the steady state. 
+\item $U_{cc}$, $U_{nn}$: same thing for second derivatives.
+\item Assume $U$ is separable in $C,N$. Therefore $U_{cn} = U_{nc} = 0$.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Second-Order Approximation}
+\begin{itemize}
+\item I will do a second order approximation of the utility function around $U$
+\begin{align*}
+U_t \approx U + U_c C \frac{C_t - C}{C} + U_n N \frac{N_t - N}{N} + \frac{1}{2} U_{cc} C^2 \left(\frac{C_t - C}{C}\right)^2 + \frac{1}{2} U_{nn} N^2 \left(\frac{N_t - N}{N}\right)^2 
+\end{align*}
+\item For small deviations, log changes and percentage deviations are approximately equal
+\item use our functional form assumption that $\gamma$ and $\varphi$ are $-C (U_{cc}/U_c)$ and $N (U_{nn}/U_n)$, respectively and impose market clearing $C = Y$.
+\begin{align*}
+U_t \approx U + U_c C \hat{y}_t + U_n N \hat{n}_t + \frac{1-\sigma}{2} U_{c}  \hat{y}^2_t + \frac{1+\varphi}{2} \hat{n}^2_t
+\end{align*}
+\item collect terms and use the results on price dispersion of Lecture 5. (Full details Gali Appendix 4.A)
+\begin{align*}
+\frac{U_t - U}{U_c C} \approx -\frac{1}{2} \left(\theta var_i ( \log P_{it}) + (\gamma + \varphi) \tilde{y}^2_t \right)
+\end{align*}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Price Dispersion and Inflation}
+\begin{itemize}
+\item Let me call $\Delta_t \equiv	var_i \log P_{it}$ and let me call $\bar{P}_t = \mathbb{E}_i \log P_{it}$
+\item and note that due to Calvo.
+$$\bar{P}_t - \bar{P}_{t-1} = \mathbb{E}_i (\log P_{it} - \bar{P}_{t-1}) = \cancelto{0}{\lambda \mathbb{E}_i (\log P_{it-1} - \bar{P}_{t-1})} + (1-\lambda)(\log P^*_t - \bar{P}_{t-1}) $$
+\item Now $\Delta_t = var_i \log P_{it} = var_i (\log P_{it} - \bar{P}_{t-1})$ and use the definition of the variance
+$$\Delta_t = \mathbb{E}_i \left[ (\log P_{it} - \bar{P}_{t-1})^2 \right] - (\cancelto{\bar{P}_t}{\mathbb{E}_i \log P_{it}} - \bar{P}_{t-1})^2$$
+\item And the Calvo property
+$$\Delta_t = \lambda \mathbb{E}_i \left[ (\log P_{it-1} - \bar{P}_{t-1})^2 \right] + (1-\lambda)(\log P_t^* - \bar{P}_{t-1})^2 -  (\bar{P}_t - \bar{P}_{t-1})^2$$
+\item use the first result in the side
+$$\Delta_t \approx \lambda \Delta_{t-1} + \frac{\lambda}{1-\lambda}  (\pi_t)^2$$
+\item Since $\bar{P} \approx \log P_t$. See Woodford (2003) Appendix E.2 for precise mathematical statement.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Welfare}
+\begin{itemize}
+\item An affine transformation of the objective of the household
+$$\mathcal{W} = \mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t \frac{U_t - U}{U_c C}$$
+\item Use our second order approximation:
+$$\mathcal{W} = -\frac{1}{2 }\mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t \left(\theta var_i ( \log P_{it}) + (\gamma + \varphi) \tilde{y}^2_t \right)$$
+\item Iterate $\Delta_t$ forward and compute its present value (Details Woodford Chapter 6 2.2).
+$$\sum_{t=0}^{\infty} \beta^t \Delta_t \propto \frac{\lambda}{(1-\lambda)(1-\lambda\beta)} \sum_{t=0}^{\infty} \beta^t \pi^2_t$$
+\item Finding
+$$\mathcal{W} = -\frac{1}{2 }\mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t \left(\frac{\theta}{\alpha}\pi^2_t + (\gamma + \varphi) \tilde{y}^2_t \right)$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Result 1: In the Calvo model price dispersion is very costly}
+$$\mathcal{W} = -\frac{1}{2 }\mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t \left(\frac{\theta}{\alpha}\pi^2_t + (\gamma + \varphi) \tilde{y}^2_t \right)$$
+\begin{itemize}
+\item Key Economics
+\begin{itemize}
+\item Households care about consumption and leisure.
+\item They don't like consuming too little, or working too much vs. the efficient allocation
+\item Output gap captures the differences
+\item Price dispersion is a symptom of misallocation and it reduces welfare
+\item Due to Calvo, inflation and price dispersion are tightly linked. This depends on Calvo!
+\end{itemize}
+\item Back of the envelope calculations
+\begin{itemize}
+\item Imagine utility is log in $C$ and linear in $N$. Then $\gamma + \varphi = 1$.
+\item Typical values for  $\theta \in [4,7]$. Let's pick $\theta = 4$
+\item If $\lambda = 0.9$ and $\beta = 0.995$, then $\alpha \approx 0.01$
+\item So $\theta/\alpha \approx 330$
+\item Inflation is waaaaaaaaay more costly than output gaps
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Optimal Policy}
+$$\max_{\pi_t, \tilde{y}_t}\mathcal{W} = -\frac{1}{2 }\mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t \left(\frac{\theta}{\alpha}\pi^2_t + (\gamma + \varphi) \tilde{y}^2_t \right)$$
+\begin{itemize}
+\item Subject to 
+$$\pi_t = \beta \mathbb{E}_t \pi_{t+1} + \kappa \tilde{y}_t$$
+$$\tilde{y}_t = \mathbb{E}_t \tilde{y}_{t+1} - \sigma(\hat{i}_t - \mathbb{E}_t \pi_{t+1} - \hat{r}^n_t)$$
+\item We are looking for sequences for $\left\lbrace \hat{i}, \tilde{y}, \hat{\pi}\right\rbrace$ such that $\mathcal{W}$ is maximized
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Optimal Policy}
+\begin{itemize}
+\item It is useful to separate the problem in two
+\begin{itemize}
+\item Pick a sequence for  $\left\lbrace  \tilde{y}, \hat{\pi}\right\rbrace$ that maximizes $\mathcal{W}$ subject to the Phillips curve
+$$\max_{\pi_t, \tilde{y}_t}\mathcal{W} = -\frac{1}{2 }\mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t \left(\frac{\theta}{\alpha}\pi^2_t + (\gamma + \varphi) \tilde{y}^2_t \right)$$
+Subject to 
+$$\pi_t = \beta \mathbb{E}_t \pi_{t+1} + \kappa \tilde{y}_t$$
+\item Find a sequence for  $\left\lbrace \hat{i}\right\rbrace$ that satisfies 
+$$\tilde{y}_t = \mathbb{E}_t \tilde{y}_{t+1} - \sigma(\hat{i}_t - \mathbb{E}_t \pi_{t+1} - \hat{r}^n_t)$$
+\end{itemize}
+\item Solution
+\begin{itemize}
+\item $\hat{\pi}_t = 0$, $\hat{y}_t = \hat{y}^n_t$ $\forall t$ (so that $\tilde{y}_t = 0$) minimizes the objective and respects the Phillips curve
+\item Pick $\hat{i}_t = \hat{r}^n_t$ $\forall t$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Result 2: The Divine Coincidence}
+\begin{itemize}
+\item The central bank does not want to stabilize output, it wants to stabilize the output gap!
+\item Divine Coincidence: The central bank can minimize output gap \textbf{and} inflation deviations simultaneously. No tradeoff.
+\item Notice: Central bank does not want to induce monetary policy shocks. $\hat{i}_t = \hat{r}^n_t$ $\forall t$. Optimal policy 100\% systematic.
+\item Notice: Optimal policy informationally very heavy. Central bank must now $r^n_t$ perfectly.
+\item Shocks to the IS curve (demand shocks) are offset via movements of $i$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Divine Coincidence: Intuition}
+\begin{itemize}
+\item The flexible price allocation is optimal
+\item Nominal rigidities are the only constraint to reach this allocation
+\item If the constraint does not bind (happens with zero inflation), there is no distortion
+\item So neutralizing inflation implies neutralization of output gap
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{The Unrealistic Divine Coincidence}
+\begin{itemize}
+\item If you were to ask central bankers, they would not agree that stabilizing one objective necessarily stabilizes the other.
+\item Rough response you would get. There are some shocks that increase inflation, and stabilizing inflation would push down output relative to the desired level
+\item Simple way in this model to capture that intuition: if the flexible price equilibrium is not efficient
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Time-Varying Efficient Output Gap}
+\begin{itemize}
+	\item In our model so far, the outcome under flexible prices, $\hat{y}_t^{n}$, is also the efficient (first-best) outcome $\hat{y}_t^{eff}$.
+	\item The central bank will face a trade-off and the divine coincidence will break once these are no longer the same.
+	\item The welfare function will now penalize deviations of output from the efficient level of output $\hat{y}_t - \hat{y}_t^{eff}$. The Phillips Curve is:
+		\begin{align*}
+			\hat{\pi}_t&=\kappa (\hat{y}_t - \hat{y}_t^{n}) +\beta E_t \{\hat{\pi}_{t+1}\} \\
+			&= \kappa (\hat{y}_t - \hat{y}_t^{eff}) +\beta E_t \{\hat{\pi}_{t+1}\} \underbrace{- \kappa (\hat{y}_t^{n} - \hat{y}_t^{eff})}_{\equiv u_t} \\
+			&= \kappa (\hat{y}_t - \hat{y}_t^{eff}) +\beta E_t \{\hat{\pi}_{t+1}\} + u_t
+		\end{align*}
+%	\begin{itemize}
+%		\item These are now no longer the same.
+%	\end{itemize}
+%	\item Let $\hat{x}_t = \hat{y}_t-\hat{y}_t^e$ be the gap between output and efficient 
+%output that the planner wishes to stabilize.
+%	\begin{itemize}
+%		\item Then $\tilde{y}_t = (\hat{y}_t-\hat{y}_t^e)-(\hat{y}_t^e-\hat{y}_t^n)$
+%		\item The Phillips Curve is then
+%		\begin{align*}
+%			\hat{\pi}_t&=\kappa \hat{x}_{t} +\beta E_t \{\hat{\pi}_{t+1}\} + u_t
+%		\end{align*}
+%		where $u_t=\kappa (\hat{y}_t^e-\hat{y}_t^n)$ is exogenous with respect to monetary policy.
+%		\item Assume $u_t$ follows AR(1):
+%		\begin{align*}
+%			u_t=\rho_u u_{t-1}+\epsilon_t^u
+%		\end{align*}
+%	\end{itemize}
+ 	\item We call $u_t$ a ``cost-push shock.''
+ 	\begin{itemize}
+ 		\item Exogenous increase in marginal costs.
+ 	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Cost Push and the Labor Wedge}
+\begin{itemize}
+	\item What are cost push shocks?
+	\begin{itemize}
+		\item Anything that moves the labor wedge beyond sticky prices.
+	\end{itemize}
+%	\item Start with labor market frictions.
+	\item Let $\mu_t^W$ be the log of a time-varying exogenous wage markup:
+	\begin{align*}
+		\hat{w}_t-\hat{p}_t=\hat{\mu}^W_t+\varphi \hat{n}_t+\gamma \hat{c}_t
+	\end{align*}
+%	\item Let $\mu_t^W$ be the log of a time-varying exogenous price markup.
+	\item Then the Phillips curve becomes:
+	\begin{align*}
+		\hat{\pi}_t&=\kappa (\hat{y}_t - \hat{y}_t^{eff}) +\beta E_t \{\hat{\pi}_{t+1}\} +\alpha \hat{\mu}^W_t
+	\end{align*}
+	\item Intuition: 
+	\begin{itemize}
+		\item Higher mark-ups mean higher inflation and lower output.
+		\item Central bank wants to offset this inefficient shock, but can only move output and inflation in the same direction.
+%		\item But mark-ups are inefficient.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{Cost Push and the Labor Wedge}
+%\begin{itemize}
+%	\item  Plug into
+%	\begin{align*}
+%		\hat{mc}_t&=\hat{w}_t-\hat{p}_t-\hat{a}_t \\
+%		&=(\gamma+\varphi)\hat{y}_t - (1+\varphi)\hat{a}_t+\hat{\mu}^W_t
+%	\end{align*}
+%	\item Subtract efficient level of output:
+%	\begin{align*}
+%		(\gamma+\varphi)\hat{y}_t^e = (1+\varphi)\hat{a}_t
+%	\end{align*}
+%	to get
+%	\begin{align*}
+%		\hat{mc}_t&=(\gamma+\varphi)\hat{x}_t +\hat{\mu}^W_t
+%	\end{align*}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Cost Push and the Labor Wedge}
+%\begin{itemize}
+%	\item  Go back to the log-linearization of the optimal pricing condition but insert a variable markup $\hat{\mu}^P_t$ which represents ``markup shocks.''
+%	\item Gali Appendix 5.2 shows
+%	\begin{align*}
+%		\hat{\pi}_t&=\lambda \hat{mc}_{t} +\beta E_t \{\hat{\pi}_{t+1}\} +\lambda \hat{\mu}^P_t
+%	\end{align*}
+%	\item Combining with $\hat{mc}_t$, we see
+%	\begin{align*}
+%		\hat{\pi}_t&=\kappa \hat{x}_{t} +\beta E_t \{\hat{\pi}_{t+1}\} +\lambda \hat{\mu}_t
+%	\end{align*}
+%	where $\hat{\mu}_t=\hat{\mu}_t^P+\hat{\mu}_t^W$ are shocks to the labor wedge through prices or wages.
+%	\begin{itemize}
+%		\item Important drivers of inflation according to DSGE models.
+%	\end{itemize}
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}
+\frametitle{The Planning Problem With A Tradeoff}
+\begin{align*}
+		\frac{1}{2}E_t\left\{\sum_{s=0}^{\infty}\beta^s\left[\vartheta (\hat{y}_{t+s}-\hat{y}_{t+s}^{eff})^2+\hat{\pi}_{t+s}^2\right]\right\}
+	\end{align*}
+	subject to
+	\begin{align*}
+		\hat{y}_t &=-\sigma E_t\{\hat{i}_t-\hat{\pi}_{t+1}\}+E_t\{\hat{y}_{t+1}\} \\
+		\hat{\pi}_t&=\kappa(\hat{y}_{t} - \hat{y}_{t}^{eff}) +\beta E_t \{\hat{\pi}_{t+1}\} + u_t 
+	\end{align*}	
+\begin{itemize}
+	\item First stage is optimizing objective function subject to NKPC.
+	\begin{itemize}
+		\item Cost push shock increases $\hat{\pi}_t$.
+		\item To offset it, can push down output relative to efficient output $\hat{y}_{t} - \hat{y}_{t}^{eff}$.
+		\item Thus there is now a tradeoff.
+		\item Intuitively, monetary policy shifts aggregate demand but $u_t$ is a
+shock to aggregate supply, so there is a tradeoff.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Planning Problem: Rules vs. Discretion}
+\begin{itemize}
+	\item Standard quadratic loss function with linear constraints.
+	\begin{itemize}
+		\item But targets depend on expectations of future policy.
+		\item To see this, iterate forward to get:
+		\begin{align*}
+			\hat{\pi}_t &=E_t\left\{\sum_{s=0}^{\infty}\beta^s[\kappa (\hat{y}_{t+s} - \hat{y}_{t+s}^{eff})+u_{t+s}]\right\} \\
+			\hat{y}_t &=E_t\left\{\sum_{s=0}^{\infty}\left[-\sigma (\hat{i}_{t+s}-\hat{\pi}_{t+s+1})+g_{t+s}\right]\right\} 
+		\end{align*}
+	\end{itemize}
+ 	\item This raises issues of credibility and time consistency of policy.
+ 	\begin{itemize}
+ 		\item Central bank can influence outcomes today by ``promising'' outcomes tomorrow.
+ 		\item But are those promises credible? 
+% 		\item Or would it want to renege on promises? How would ``optimal promises'' look and how would they help?
+ 		\item See Gali 5.3 for the solution to the commitment case.
+ 	\end{itemize}
+ 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Discretionary Problem}
+\begin{itemize}
+	\item For today, we assume that the central bank follows a \emph{discretionary optimal policy}.
+	\begin{itemize}
+		\item Cannot make credible commitments about future actions (hopefully have time to discuss why)
+		\item So optimize \emph{taking  expectations of future actions as given}.
+	\end{itemize}
+	\item Solve
+		\begin{align*}\min_{\hat{\pi}_t,\hat{y}_{t}}\frac{1}{2}[\vartheta (\hat{y}_{t} - \hat{y}_{t}^{eff})^2+\hat{\pi}_{t}^2]+F_t\text{ s.t. }\hat{\pi}_t=\kappa(\hat{y}_{t} - \hat{y}_{t}^{eff})+f_t
+	\end{align*}
+	where
+	\begin{align*}
+		F_t &=\frac{1}{2}E_t\left\{\sum_{s=1}^{\infty}\beta^s\left[\vartheta (\hat{y}_{t+s} - \hat{y}_{t+s}^{eff})^2+\hat{\pi}_{t+s}^2\right]\right\} \\
+		f_t &= \beta\hat{\pi}_{t+1}+u_t
+	\end{align*}
+ 	are functions of expectations of future actions.
+ 	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{``Lean Against the Wind'' Policy}
+\begin{align*}\min_{\hat{\pi}_t,\hat{y}_t}\frac{1}{2}[\vartheta (\hat{y}_{t} - \hat{y}_{t}^{eff})^2+\hat{\pi}_{t}^2]+F_t\text{ s.t. }\hat{\pi}_t=\kappa(\hat{y}_{t} - \hat{y}_{t}^{eff})+f_t
+	\end{align*}
+\begin{itemize}
+	\item The First order condition is	\begin{align*}
+		\hat{y}_{t} - \hat{y}_{t}^{eff} &=-\frac{\kappa}{\vartheta}\hat{\pi}_{t}
+	\end{align*}
+	\item  ``Lean Against The Wind'' Policy.
+	\begin{itemize}
+		\item In face of inflationary pressures from cost push shocks, \emph{drive output below its efficient level to dampen rise in inflation}.
+		\item Extent to which it does so depends on:
+		\begin{itemize}
+			\item $\kappa$, which determines reduced inflation per unit of output loss.
+			\item $\vartheta$, the relative weight placed on output loss.
+		\end{itemize}
+	\end{itemize}
+	\item Flip from ``Old Keynesian'' logic where stabilizing output at cost of inflation.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Inflation and Output Under Discretion}
+\begin{itemize}
+	\item Plug policy into Phillips curve:
+	\begin{align*}
+		\hat{\pi}_t &=\frac{\vartheta\beta}{\vartheta+\kappa^2}E_t\hat{\pi}_{t+1}+\frac{\vartheta}{\vartheta+\kappa^2}u_t
+	\end{align*}
+	\item  And iterate forward to get:
+	\begin{align*}
+		\hat{\pi}_t &=\frac{\vartheta}{\vartheta(1-\beta\rho_u)+\kappa^2}u_t
+	\end{align*}
+	\item Combine with optimality condition to get
+	\begin{align*}
+		\hat{y}_{t} - \hat{y}_{t}^{eff} &=-\frac{\kappa}{\vartheta(1-\beta\rho_u)+\kappa^2}u_t
+	\end{align*}
+	\item So central bank lets output gap and inflation fluctuate in proportion to current value of cost push shock.
+	\begin{itemize}
+		\item Intuition: Cost push increases inflation, central bank wants to smooth both so trades some inflation for output.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Interest Rate Under Discretion}
+\begin{itemize}
+	\item Plugging into dynamic IS:
+	\begin{align*}
+		\hat{y}_t &=-\sigma E_t\{\hat{i}_t-\hat{\pi}_{t+1}\}+E_t\{\hat{y}_{t+1}\} + g_t
+	\end{align*}
+	obtains
+	\begin{align*}
+		\hat{i}_t &=\hat{r}_{t+1}^{eff}+\phi_\pi \hat{\pi}_{t}+\frac{g_t}{\sigma}
+	\end{align*}
+	where
+	\begin{align*}
+		 \hat{r}_{t+1}^e = \frac{1}{\sigma}E_t\{\hat{y}_{t+1}^{eff} - \hat{y}_t^{eff}\},\qquad \phi_\pi=\rho_u+\frac{\kappa(1-\rho_u)}{\sigma[\vartheta(1-\beta\rho_u)+\kappa^2]}
+	\end{align*}
+	\item Central bank implements the optimal outcome with what looks like an interest rate (Taylor) rule.
+\end{itemize}
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+
