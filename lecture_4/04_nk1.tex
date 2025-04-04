@@ -78,13 +78,13 @@
 \pause
 \item Simplest production structure. Production linear in labor.
 \pause
-\item Price rigidity
+\item Price rigidity. Each period
 \begin{itemize}
 \item With probability $1-\lambda$ firms can adjust their prices. With probability $\lambda$ must keep them fixed
 \pause
-\item i.i.d across firms, and constant through time
+\item i.i.d across firms and through time, $\lambda$ a fixed parameter
 \pause
-\item $(1-\lambda)$ firms adjust today. $\lambda(1-\lambda)$ adjusted last period for the last time. $\lambda(1-\lambda)^2$ two periods ago, and so on.
+\item $(1-\lambda)$ firms adjust today. $\lambda(1-\lambda)$ adjusted last period for the last time. $\lambda^2(1-\lambda)$ two periods ago, and so on.
 \pause
 \item Not meant to be realistic. We will contrast with the data soon. Will offer theoretical insights.
 \pause
@@ -123,7 +123,7 @@ P_{it} = \frac{\theta}{\theta-1} \frac{W_t}{A_t}
 \item Gives rise to a dynamic pricing problem. My price today will impact my profits in the future
 \begin{align*}
 &\max_{P^*_{it},Y_{i,t+k|t}, L_{i,t+k|t}} \mathbb{E}_t \sum_{k=0}^{\infty} \Lambda_{t,t+k} \lambda^k \left(P^*_{it} Y_{i,t+k|t} - W_{t+k} L_{i,t+k|k}\right) \frac{1}{P_{t+k}}\\
-& \text{subject to:  } Y_{i,t+k|t} = C_{t+k} (P_{i,t+k|t}/P_{t+k})^{-\theta} \text{  ,  } Y_{i,t+k|t} = A_{t+k} L_{i,t+k|t}
+& \text{subject to:  } Y_{i,t+k|t} = C_{t+k} (P^*_{i,t}/P_{t+k})^{-\theta} \text{  ,  } Y_{i,t+k|t} = A_{t+k} L_{i,t+k|t}
 \end{align*}
 \pause
 \item Firms take decisions under uncertainty (210A), discounting future profits using the SDF of the marginal investor $\Lambda$ (210B), by choosing a sticky price (lecture 4), subject to a sequence of CES demand curves (lecture 2).
@@ -140,10 +140,10 @@ P_{it} = \frac{\theta}{\theta-1} \frac{W_t}{A_t}
 \begin{itemize}
 \item Plug the constraints in the objective and take FOC with respect to $P_{it}^*$. Will not do it here. Life is too short.
 \begin{align*}
-P^*_{it} = \mathcal{M} \frac{\mathbb{E}_t \sum_{k=0}^{\infty} \lambda^k \Lambda_{t,t+k} \frac{W_{t+k}}{A_{t+k}} C_{t+k} P_{t+k}^{\theta-1}}{\mathbb{E}_t \sum_{k=0}^{\infty} \lambda^k \Lambda_{t,t+k} C_{t+k} P_{t+k}^{\theta-1}}
+P^*_{it} = \mathcal{M} \frac{\mathbb{E}_t \sum_{k=0}^{\infty} \lambda^k \Lambda_{t,t+k} MC_{t+k} C_{t+k} P_{t+k}^{\theta}}{\mathbb{E}_t \sum_{k=0}^{\infty} \lambda^k \Lambda_{t,t+k} C_{t+k} P_{t+k}^{\theta-1}}
 \end{align*}
 \pause
-\item where $\mathcal{M} = \frac{\theta}{\theta-1}$ is the gross markup under flexible prices, and $W/A$ is the nominal marginal cost
+\item where $\mathcal{M} = \frac{\theta}{\theta-1}$ is the gross markup under flexible prices, and $MC_{t+k} = \frac{W_{t+k}}{P_{t+k} A_{t+k}}$ is the real marginal cost
 \item In words: The firm chooses $P^*$ to minimize the weighted distance of its profits to those of the flexible price eq., using as weights the probability that the price is active in period $k$, and the expected valuation of dividends by its owner in that period.
 \pause
 \item Notice: $P^*_{it}$ is the same $\forall i$. Result of assumptions on the nature of shocks and competition.
@@ -158,7 +158,7 @@ P^*_{it} = \mathcal{M} \frac{\mathbb{E}_t \sum_{k=0}^{\infty} \lambda^k \Lambda_
 \pause
 \item Since resetters are picked at random, the average price of firms with fixed prices is $P_{t-1}$.
 \pause
-\item Important economic assumption. No selection in price changes!
+\item Result of the Calvo assumption. No selection in price changes!
 \pause
 \item Easy to show
 $$P_t^{1-\theta} = (1-\lambda) (P^*_t)^{1-\theta} + \lambda P^{1-\theta}_{t-1}$$
@@ -366,9 +366,9 @@ An equilibrium is an allocation $\left\lbrace C_{i,t+s} C_{t+s}, N_{t+s},Y_{t+s}
 \end{align*}
 so
 \begin{align*}
-	\hat{mc}_t^{flex} = 0,\qquad (\gamma+\varphi)\hat{y}_t^{flex}&=(1+\varphi)\hat{a}_t \\
+	\hat{mc}_t^{n} = 0,\qquad (\gamma+\varphi)\hat{y}_t^{n}&=(1+\varphi)\hat{a}_t \\
 \end{align*}
-where $\hat{y}_t^{flex}$ is called the \emph{natural level of output}.
+where $\hat{y}_t^{n}$ is called the \emph{natural level of output}, or output if prices were flexible.
 \end{itemize}
 \end{frame}
 
@@ -424,11 +424,11 @@ where $\hat{y}_t^{flex}$ is called the \emph{natural level of output}.
 	\item Combine:
 	\begin{align*}
 		\hat{mc}_t&=(\gamma+\varphi)\hat{y}_t-(1+\varphi)\hat{a}_t \\
-		(\gamma+\varphi)\hat{y}_t^{flex}&=(1+\varphi)\hat{a}_t \\
+		(\gamma+\varphi)\hat{y}_t^{n}&=(1+\varphi)\hat{a}_t \\
 \end{align*}
 	to write real marginal costs in terms of output gap $\tilde{y}_t$:
 	\begin{align*}
-		\hat{mc}_t&=(\gamma+\varphi)(\hat{y}_t-\hat{y}_t^{flex})
+		\hat{mc}_t&=(\gamma+\varphi)(\hat{y}_t-\hat{y}_t^{n})
 	\end{align*}
 	\item Real marginal costs go up (and markups go down) when the output gap is high.
 	\begin{itemize}
@@ -471,7 +471,7 @@ bidding up real wage.
 \begin{itemize}
 	\item Plug back into the Phillips curve $\hat{\pi}_t=\alpha\hat{mc}_{t}+\beta E_t\{\hat{\pi}_{t+1}\}$
 	\begin{align*}
-		\hat{\pi}_t=\kappa(\hat{y}_t-\hat{y}_t^{flex})+\beta E_t\{\hat{\pi}_{t+1}\},\;\text{ where }\;\kappa=\alpha(\gamma+\varphi)
+		\hat{\pi}_t=\kappa(\hat{y}_t-\hat{y}_t^{n})+\beta E_t\{\hat{\pi}_{t+1}\},\;\text{ where }\;\kappa=\alpha(\gamma+\varphi)
 \end{align*}
 	\begin{itemize}
 		\item This is the \emph{New Keynesian Philips Curve}: an expectations augmented Phillips curve written in terms of the output gap.
@@ -479,7 +479,7 @@ bidding up real wage.
 	\end{itemize}
 	\item Solving forward,
 	\begin{align*}
-		\hat{\pi}_t=\kappa E_t\left\{\sum_{s=0}^{\infty}\beta^s(\hat{y}_{t+s}-\hat{y}_{t+s}^{flex})\right\}
+		\hat{\pi}_t=\kappa E_t\left\{\sum_{s=0}^{\infty}\beta^s(\hat{y}_{t+s}-\hat{y}_{t+s}^{n})\right\}
 	\end{align*}
 	\begin{itemize}
 		\item Inflation is an increasing function of future output gaps.
@@ -563,18 +563,18 @@ bidding up real wage.
 	\item In sum, the log-linearized NK model boils down to three equations:
 	\begin{align*}
 		\hat{y}_t &=-\sigma[\hat{i}_t-E_t\{\hat{\pi}_{t+1}\}]+E_t\{\hat{y}_{t+1}\} \\
-		\hat{\pi}_t&=\kappa (\hat{y}_t-\hat{y}_t^{flex}) +\beta E_t \{\hat{\pi}_{t+1}\} \\
+		\hat{\pi}_t&=\kappa (\hat{y}_t-\hat{y}_t^{n}) +\beta E_t \{\hat{\pi}_{t+1}\} \\
 		\hat{i}_t&=\phi_\pi\hat{\pi}_t+v_t \\
 	\end{align*}
 	with three unknowns: $\hat{i}_t$, $\hat{y}_t$, and $\hat{\pi}_t$  and an exogenous driving
-process for the output gap $\hat{y}_t^{flex}$ ($=\frac{1+\varphi}{\gamma+\varphi}\hat{a}_t$) and the monetary policy shock $\hat{v}_t$.
+process for the output gap $\hat{y}_t^{n}$ ($=\frac{1+\varphi}{\gamma+\varphi}\hat{a}_t$) and the monetary policy shock $\hat{v}_t$.
 	\item Key new ingredient is NK Phillips curve:
 	\begin{itemize}
 		\item $\beta E_t \{\hat{\pi}_{t+1}\}$: Price setters forward looking.
 		\item $\kappa\hat{y}_t$: Output  $\uparrow\;\Rightarrow$ MC $\uparrow\;\Rightarrow$ markups $\downarrow\;\Rightarrow$ raise prices
 	\end{itemize}
 	\item Determinacy: similar condition to lecture 1. See Gali.
-	\item Note: Gali writes everything in terms of ``gaps'', $\tilde{y}_t = \hat{y}_t-\hat{y}_t^{flex}$.
+	\item Note: Gali writes everything in terms of ``gaps'', $\tilde{y}_t = \hat{y}_t-\hat{y}_t^{n}$.
 \end{itemize}
 \end{frame}
 
@@ -585,14 +585,14 @@ process for the output gap $\hat{y}_t^{flex}$ ($=\frac{1+\varphi}{\gamma+\varphi
 	\item Equivalent to flexible prices: $\lambda=0$.
 	\item The NK Phillips Curve becomes:
 	\begin{align*}
-		\hat{y}_t = \hat{y}_t^{flex}&=\frac{1+\varphi}{\gamma+\varphi}\hat{a}_t 
+		\hat{y}_t = \hat{y}_t^{n}&=\frac{1+\varphi}{\gamma+\varphi}\hat{a}_t 
 	\end{align*}
 	\item Output fluctuations arise only from productivity fluctuations.
 	\item Monetary variables $v_t$ have no real effect:
 	\begin{itemize}
-		\item Drop in $v_t$ lowers nominal rate and real interest rate.
-		\item All else equal increases output and marginal cost.
-		\item Prices today rise with marginal cost so that $\pi_{t+1}$ is low and the real interest rate is constant.
+		\item Drop in $v_t$ lowers nominal rate
+		\item But output does not respond. Given by $\hat{a}$
+		\item Whole effect of $i$ transferred into expected inflation. Real interest rate does not move.
 		\item[$\Rightarrow$] With constant real interest rate output is unchanged.
 	\end{itemize}
 \end{itemize}
@@ -601,7 +601,7 @@ process for the output gap $\hat{y}_t^{flex}$ ($=\frac{1+\varphi}{\gamma+\varphi
 \begin{frame}
 \frametitle{Special Case: $\kappa=0$}
 \begin{itemize}
-	\item Equivalent to perfectly rigid prices: $\theta=1$.  The NK Phillips Curve becomes $\hat{\pi}_t=0$.
+	\item Equivalent to perfectly rigid prices: $\lambda=1$.  The NK Phillips Curve becomes $\hat{\pi}_t=0$.
 	\item Now output is demand determined:
 	\begin{align*}
 		\hat{y}_t &=-\sigma\hat{i}_t +E_t\{\hat{y}_{t+1}\} \\
