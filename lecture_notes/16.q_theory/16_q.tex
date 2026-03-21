@@ -1,0 +1,516 @@
+%%
+% Please see https://bitbucket.org/rivanvx/beamer/wiki/Home for obtaining beamer.
+%%
+%\documentclass[11pt,aspectratio=169]{beamer}
+%\documentclass[11pt,aspectratio=169,xcolor={dvipsnames}]{beamer}
+
+\documentclass[11pt,aspectratio=169,xcolor={dvipsnames},hyperref={pdftex,pdfpagemode=UseNone,hidelinks,pdfdisplaydoctitle=true},usepdftitle=false]{beamer}
+\usepackage{presentation}
+
+
+\title{Lecture 16: Q-Theory of Investment}
+\author{Juan Herre\~{n}o\\UCSD}
+\date{2026}
+
+% Enter presentation title to populate PDF metadata:
+\newcommand{\Cov}{\text{Cov}_\lambda}
+\newcommand{\El}{\mathbb{E}_\lambda}
+\newcommand{\mm}{\text{{\fontfamily{qzc}\selectfont m}}}
+\usepackage{cancel}
+\usepackage{booktabs}
+\begin{document}
+
+\maketitle
+
+
+\begin{frame}{The Neoclassical Model}
+Time is continuous (same framework you saw in Econ 210B). Firms:
+\pause
+\begin{itemize}
+\item Discounts future profits at rate $r$
+\pause
+\item Produces a homogeneous good
+\pause
+\item Perfect competition in input and output markets
+\pause
+\item Production Function is CRS
+\pause
+\item Hires labor, buys capital
+\end{itemize}
+Problem of a firm that takes input prices as given
+\end{frame}
+
+\begin{frame}{Profits}
+Profits are given by revenues minus the wage bill minus capital expenditures
+\pause
+\begin{align}
+\pi_{t} = A_t F(k_t,n_t) - w_t n_t - i_t
+\end{align}
+\pause
+Capital adjusts given the law of motion
+\pause
+\begin{align}
+\dot{k}_t = i_t
+\end{align}
+\pause
+\begin{itemize}
+\item We are assuming zero depreciation just for simplicity
+\pause
+\item Abstracting from taxes, bonus depreciation, etc.
+\pause
+\item Perfect foresight
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The firm's problem}
+Objective
+\pause
+\begin{align}
+\max_{i_t, n_t} V = \int_0^{\infty} e^{-rt} \pi_t dt
+\end{align}
+\pause
+Subject to
+\pause
+\begin{align}
+\pi_{t} &= A_t F(k_t,n_t) - w_t n_t - i_t\\
+\dot{k}_t& = i_t
+\end{align}
+\pause
+You are experts in solving these problems
+\pause
+\begin{align}
+\mathcal{H} = e^{-rt} \left(A F(k_t,n_t) - w_t N_t -  i_t \right) + \lambda_t i_t.
+\end{align}
+\pause
+Question: What is the meaning of $\lambda_t$?
+\end{frame}
+
+\begin{frame}{$\lambda$ vs. $q$}
+\pause
+$\lambda_t$ is the marginal value of one unit of investment at time $t$ to time-zero firm value
+\begin{itemize}
+\pause
+\item It is the \textit{present value} marginal value of investment
+\end{itemize}
+\pause
+We will introduce a new concept, the current marginal value $q_t$
+\begin{align}
+\pause
+q_t = \lambda_t e^{rt}
+\end{align}
+\end{frame}
+
+\begin{frame}{Optimality Conditions $\lambda$}
+\begin{align}
+\mathcal{H} = e^{-rt} \left(A F(k_t,n_t) - w_t n_t -  I_t \right) + \lambda_t i_t.
+\end{align}
+\pause
+Optimality conditions:
+\pause
+\begin{align}
+A F_n &= w_t\\
+e^{-rt} &= \lambda_t \\
+e^{-rt} A_t F_k &= -\dot{\lambda}_t \\
+\lim_{t\rightarrow \infty} \lambda_t k_t &= 0.
+\end{align}
+\end{frame}
+
+
+\begin{frame}{Optimality Conditions $q$}
+\begin{align}
+\mathcal{H} = e^{-rt} \left(A F(k_t,n_t) - w_t n_t -  I_t \right) + \lambda_t i_t.
+\end{align}
+\pause
+Optimality conditions:
+\begin{align}
+A F_n &= w_t\\
+q_t &= 1 \\
+A F_k &= - \dot{q}_t + r q_t\\
+\lim_{t\rightarrow \infty} e^{-rt} q_t k_t &= 0.
+\end{align}
+\end{frame}
+
+\begin{frame}{Zoom in the key result}
+$$q_t = 1$$
+\pause
+What is the meaning of this equation?
+\pause
+\begin{itemize}
+\item The marginal value of investing is equal to $q_t$
+\pause
+\item The marginal cost of investing is losing 1 unit of profits
+\pause
+\item Optimality requires to invest until marginal benefit equals marginal cost
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Implications of the key result}
+If $q_t = 1$, then $\dot{q}_t = 0$\\
+\pause
+So equation $A F_k = - \dot{q}_t + r q_t$\\
+\pause
+Transforms into
+\pause
+$$A F_k = r $$
+It is as if firms are solving a static problem
+\pause
+\begin{itemize}
+\item Equate marginal product of capital to $r$ at each point in time
+\pause
+\item There is no role for future variables
+\pause
+\item There is no role for past variables
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The economics of the basic problem}
+Imagine a firm starts with $k_0 < k^*$ , for $k^*$ consistent with $AF_k^* = r$
+\pause
+\begin{itemize}
+\item Capital will jump immediately to $k^*$
+\pause
+\item Investment is not well-defined at the time of adjustment
+\pause
+\item It will be zero otherwise
+\end{itemize}
+\pause
+Not having a properly defined investment function is obviously problematic. Economics:
+\begin{itemize}
+\pause
+\item Capital should \textit{jump} instantaneously
+\pause
+\item Therefore, investment needs to be infinite for an instant
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{The economics of the basic problem}
+Imagine $A$ increases to $A_H$ and goes down to $A$ in the following instant
+\begin{itemize}
+\item Firms will infinitely invest in the present
+\pause
+\item Firms will infinitely disinvest in the following instant
+\end{itemize}
+Against any possible intuition. $r = A F_k$
+\end{frame}
+
+\begin{frame}{Away from continuous time for a second}
+You may think this are problems that arise only in the continuous time limit
+\end{frame}
+
+
+\begin{frame}{Away from continuous time for a second}
+\begin{itemize}
+\item To further illustrate this point imagine we are in discrete time, each period is a year.
+\pause
+\item The same equation applies
+$$A F_k = r $$
+\pause
+\item Assume that $F(K,L) = K^{\alpha}L^{1-\alpha}$. Therefore:
+$$1+r_t = 1+ A_t \alpha K_t^{\alpha-1}L_t^{1-\alpha}$$
+\vspace{-0.5cm}
+\pause
+\item Make a log-linear approximation. Hatted variables are log changes:
+$$\hat{r}_t = \frac{r}{1+r}\left(\hat{a}_t - (1-\alpha) \hat{k}_t + (1-\alpha) \hat{l}_t\right)$$
+\vspace{-0.5cm}
+\pause
+\item where $\hat{r_t} = \log \frac{1+r_t}{1+r}$, solve for $\hat{k}$
+$$\hat{k}_t = - \hat{r}_t \left(\frac{1+r}{(1-\alpha)r}\right) + \frac{\hat{a}_t}{1-\alpha} + \hat{l}_t$$
+\vspace{-0.5cm}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Away from continuous time for a second}
+$$\hat{k}_t = - \hat{r}_t \left(\frac{1+r}{(1-\alpha)r}\right) + \frac{\hat{a}_t}{1-\alpha} + \hat{l}_t$$
+\begin{itemize}
+\pause
+\item Assume an exogenous decrease of 1\% in interest rates.
+\pause
+\item Capital would have to increase 31.5\%  
+\pause
+\item Including reasonable depreciation would change this number to 14\%.
+\pause
+\item Letting labor increase would further increase this number
+\pause
+\item Assume 100\% of GDP could be transformed to capital.
+\pause
+\item Capital-output ratios are between 2 and 4 (depending on land and housing)
+\pause
+\item To increase capital by 31\%, it would take 61\%-124\% of GDP
+\item With $\delta$: to increase capital by 14\%, it would take 28-56\% of GDP
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The economics of the basic problem}
+Imagine firms notice that $A$ will increase at time $\tau$ ($A_{\tau} > A$)
+\begin{itemize}
+\item Firms do nothing up until period $\tau$
+\item invest $+ \infty$ at time $\tau$
+\end{itemize}
+No role for news about the future
+\end{frame}
+
+\begin{frame}{Idea: convex adjustment costs}
+Investing takes time and resources
+\pause
+\begin{itemize}
+\item Installing capital is costly
+\item Planning the right level of capital is costly
+\item scrapping old capital is costly
+\end{itemize}
+\pause
+Convex costs
+\begin{align}
+\phi(i,k) = \frac{\varphi}{2} \left(\frac{i}{k}\right)^2 k
+\end{align}
+Lucas (1967) is an early reference for convex costs on investment
+\begin{itemize}
+\item Note that defined in this way $\phi(i,k)$ is homogeneous of degree 1
+\end{itemize}
+\end{frame}
+
+\begin{frame}{New firm's problem}
+Objective
+\begin{align}
+\max_{i_t, n_t} V = \int_0^{\infty} e^{-rt} \pi_t dt
+\end{align}
+Subject to
+\begin{align}
+\pi_{t} &= A_t F(k_t,n_t) - w_t n_t - i_t - \frac{\varphi}{2} \left(\frac{i}{k}\right)^2 k \\
+\dot{k}_t& = i_t
+\end{align}
+You are experts in solving these problems
+\pause
+\begin{align}
+\mathcal{H} = e^{-rt} \left(A F(k_t,n_t) - w_t N_t -  i_t - \frac{\varphi}{2} \left(\frac{i}{k}\right)^2 k \right) + \lambda_t i_t.
+\end{align}
+\pause
+Question: What is the meaning of $\lambda_t$?
+\end{frame}
+
+
+\begin{frame}{Optimality Conditions}
+\begin{align}
+A F_N &= w_t\\
+1 + \varphi \frac{i_t}{k_t}  &= q_t\\
+-\dot{q}_t + r q_t &= AF_k + \frac{\varphi}{2}\left(\frac{i}{k}\right)^2
+\end{align}
+\end{frame}
+
+\begin{frame}{Zoom in the important economics}
+$$1 + \varphi \frac{i_t}{k_t}  = q_t$$
+\begin{itemize}
+\item Rewrite the equation as
+$$\frac{i_t}{k_t} = h(q_t)$$
+\item The investment rate is \textbf{only} a function of $q_t$
+\pause 
+\item $q$ is a \textit{sufficient statistic}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Two benefits for having more capital}
+\begin{itemize}
+\item You can solve the differential equation
+$$-\dot{q}_t + r q_t = AF_k +\frac{\varphi}{2} \left(\frac{i}{k}\right)^2$$
+\item And find that
+$$q_0 = \int_0^{\infty} e^{-rt} \left[ A_t F_{kt} +  \frac{\varphi}{2}  \left(\frac{i_t}{k_t}\right)^2 \right]dt$$
+\item Investment brings a sequence of marginal products
+\pause
+\item Reductions in future costs of adjustment
+\pause
+\item that is the marginal value of investment.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The mechanics of the q-Theory}
+\begin{itemize}
+\item Imagine there are news about future profitability
+\pause
+\item This increases $A$ for instance
+\item Increasing $q$ by
+$$q_0 = \int_0^{\infty} e^{-rt} \left[ A_tF_{kt} +  \frac{\varphi}{2} \left(\frac{i_t}{k_t}\right)^2 \right]dt$$
+\pause
+\item a higher $q$ calls for higher investment
+$$\frac{i_t}{k_t}  = \frac{q_t -1}{\varphi} $$
+\item Higher $k$ brings down future MPK
+\item Lowering $q$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{When to invest}
+$$\frac{i_t}{k_t}  = \frac{q_t -1}{\varphi} $$
+\begin{itemize}
+\pause
+\item Investment will be positive as long as $q>1$
+\pause
+\item How much to invest depends on $\varphi$
+\pause
+\item What happens in the limit $\varphi \rightarrow 0$?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{How to implement the Q Theory}
+\begin{itemize}
+\item So far we have a theory that ties investment to $q$
+\pause
+\item We do not have good measures for marginal $q$ in the data
+\pause
+\item It is a similar measurement problem to that of having measures of marginal cost!
+\pause
+\item We do have measures of \textit{average} $q$. Also called \textit{Tobin's} Q
+\item To which we will refer to as $Q$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Tobin's Q}
+\begin{itemize}
+\item Tobin (1969) argued that firms should invest if 
+$$Q = \frac{\text{Value of the Firm Capital}}{\text{Replacement Cost of the Capital Stock}}$$
+\item Capital is valued more within the firm, than outside of the firm.
+\pause
+\item Our theory says that investment should be higher if $q>1$
+\pause
+\item Under what conditions Tobin's claim is sustained in our standard model?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{How to implement the Q Theory}
+\begin{itemize}
+\item $q$ is the marginal value of one unit of capital
+\pause
+\item Average $Q$ is the average value of a unit of capital
+$$Q = \frac{\text{Value of the Firm Capital}}{\text{Replacement Cost of the Capital Stock}}$$
+\pause
+\item Can we learn about $q$ with information about $Q$?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Hayashi 1982}
+\begin{itemize}
+\item Under a number of conditions, there is an equivalent result.
+\begin{itemize}
+\item Firms have CRS technology
+\item The adjustment cost technology is CRS
+\item Perfect competition
+\item Efficient Financial Markets
+\end{itemize}
+\item Then $q_t = Q_t$
+\item Hayashi (1982) presented this result in continuous time.
+\item I will show you the result in discrete time, which for me is more intuitive
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Marginal $q$ and Average $Q$ in discrete time}
+\begin{itemize}
+\item Time is discrete and the problem is very similar to what we covered before
+\pause
+\item Profits are given by
+$$\pi_t = AF(K_t,L_t) - W_t L_t - I_t - \psi \left(\frac{I_t}{K_t}\right) K_t$$
+\vspace{-0.5cm}
+\item Firms maximize their value
+$$V_0 = \sum_{t=0}^{\infty} \left(\frac{1}{1+r}\right)^{t} \pi_t$$
+\vspace{-0.5cm}
+\pause
+\item Subject to the law of motion of capital
+$$K_{t+1} = K_t(1-\delta) + I_t$$
+\vspace{-0.5cm}
+\item $q_t$ is the Lagrange multiplier
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Marginal $q$ and Average $Q$ in discrete time}
+\begin{itemize}
+\item The problem has very similar first order conditions
+$$AF_L(K_t,L_t) = W_t$$
+$$q_t = 1 + \psi' \left(\frac{I_t}{K_t}\right)$$
+$$q_t = \frac{1-\delta}{1+r} q_{t+1} + \frac{1}{1+r} \left(A_{t+1} F_k(K_{t+1},L_{t+1}) - \psi \left(\frac{I_{t+1}}{K_{t+1}}\right) - \psi' \left(\frac{I_{t+1}}{K_{t+1}}\right) \frac{I_{t+1}}{K_{t+1}}\right)$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Marginal $q$ and Average $Q$ in discrete time}
+$$q_t = \frac{1-\delta}{1+r} q_{t+1} + \frac{1}{1+r} \left(A_{t+1} F_k(K_{t+1},L_{t+1}) - \psi \left(\frac{I_{t+1}}{K_{t+1}}\right) - \psi' \left(\frac{I_{t+1}}{K_{t+1}}\right) \frac{I_{t+1}}{K_{t+1}}\right)$$
+\vspace{-0.5cm}
+\begin{itemize}
+\pause
+\item And multiply by $K_{t+1}$
+$$q_t K_{t+1} = \frac{1-\delta}{1+r} q_{t+1}K_{t+1} + \frac{1}{1+r} \left(A_{t+1} F_k(K_{t+1},L_{t+1})K_{t+1} - \psi \left(\frac{I_{t+1}}{K_{t+1}}\right)K_{t+1}  - \psi' \left(\frac{I_{t+1}}{K_{t+1}}\right) I_{t+1} \right)$$
+\vspace{-0.5cm}
+\pause
+\item Now use $q_{t+1} = 1 + \psi' \left(\frac{I_{t+1}}{K_{t+1}}\right)$, to replace $\psi'$
+$$q_t K_{t+1} = \frac{1-\delta}{1+r} q_{t+1}K_{t+1} + \frac{1}{1+r} \left(A_{t+1} F_k(K_{t+1},L_{t+1})K_{t+1} - \psi \left(\frac{I_{t+1}}{K_{t+1}}\right)K_{t+1}  - (q_{t+1} - 1) I_{t+1} \right)$$
+\vspace{-0.5cm}
+\pause
+\item Use the law of motion of capital in period $t+1$ to replace $I_{t+1}$
+$$q_t K_{t+1} = \frac{1-\delta}{1+r} q_{t+1}K_{t+1} + \frac{1}{1+r} \left(A_{t+1} F_k(K_{t+1},L_{t+1})K_{t+1} - \psi \left(\frac{I_{t+1}}{K_{t+1}}\right)K_{t+1}  - (q_{t+1} - 1)(K_{t+2} - K_{t+1}(1-\delta))\right)$$
+\vspace{-0.5cm}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Marginal $q$ and Average $Q$ in discrete time}
+\begin{itemize}
+\item Rearrange
+$$q_t K_{t+1} =   \frac{1}{1+r}q_{t+1}K_{t+2} + \frac{1}{1+r} \left(A_{t+1} F_k(K_{t+1},L_{t+1})K_{t+1} - \psi \left(\frac{I_{t+1}}{K_{t+1}}\right)K_{t+1}  - I_{t+1} \right)$$
+\vspace{-0.5cm}
+\item Now use Euler's Theorem $F(K,L) = F_k(K,L) K + F_L(K,L) L$
+\item And, perfect competition in the labor market $W = A F_L (K,L)$
+$$q_t K_{t+1} =   \frac{1}{1+r}q_{t+1}K_{t+2} + \frac{1}{1+r} \left(A_{t+1} F(K_{t+1},L_{t+1}) - W_{t+1} L_{t+1} - \psi \left(\frac{I_{t+1}}{K_{t+1}}\right)K_{t+1}  - I_{t+1} \right)$$
+\vspace{-0.5cm}
+\item Notice that the term in parenthesis is just profits tomorrow
+$$q_t K_{t+1} =   \frac{1}{1+r}q_{t+1}K_{t+2} + \frac{1}{1+r} \pi_{t+1}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Marginal $q$ and Average $Q$ in discrete time}
+\begin{itemize}
+\item Iterate forward and use the TVC to get rid of the terminal term
+$$q_t K_{t+1} =  \sum_{j=1}^{\infty} \left(\frac{1}{1+r}\right)^t \pi_{t+1}$$
+\vspace{-0.5cm}
+\item Use efficiency of financial markets:
+$$q_t K_{t+1} = V^e_{t}$$
+\pause
+\item $V_t^e$ is the ``ex-dividend'' (after paying today's dividend) value of the firm equity
+\item Divide by the stock of capital at the beginning of tomorrow's period
+$$q_t =\frac{ V^e_{t}}{K_{t+1}}$$
+\vspace{-0.5cm}
+\pause
+\item Realize that the RHS is the average $Q$
+$$q_t = Q_t$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Relevance of this Result}
+\begin{itemize}
+\item $q_t = Q_t$. So?
+\pause
+\item This result makes the Q-theory operational
+\pause
+\item $Q$ is measurable
+\pause
+\item We can now measure $Q$ at different levels of aggregation
+\begin{itemize}
+\item Firm level
+\item Industry level
+\item National level
+\end{itemize}
+\item  And test the theory
+\pause
+\item Why do we want to test this theory?
+\begin{itemize}
+\item It is our benchmark model
+\item Many educated guesses come from this framework
+\item The investment effects of tax reforms
+\item The investment effects of monetary policy
+\item And so on...
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\end{document}
+
+
